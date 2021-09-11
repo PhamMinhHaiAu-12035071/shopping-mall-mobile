@@ -1,20 +1,24 @@
-import { makeStyles } from "@material-ui/core/styles";
-import { Props } from "./";
+import styled, { DefaultTheme } from "styled-components";
+import Fab from "@material-ui/core/Fab";
 
-const useStyles = makeStyles({
-  homeIcon: (props: Props) => ({
-    "& .MuiButtonBase-root": {
-      borderRadius: 9999,
-      backgroundColor: props.theme.colors.mainTwo,
-      boxShadow: "none",
-      "& .MuiTouchRipple-root": {
-        color: "white",
-      },
-      "&:hover": {
-        backgroundColor: "rgb(239, 212, 212)",
-      },
-    },
-  }),
-});
+const HomeFabIcon = styled(Fab)<{ theme: DefaultTheme }>`
+  border-radius: 9999px;
+  background-color: ${(props) => props.theme.colors.mainTwo};
+  box-shadow: none;
+  width: 40px;
+  height: 40px;
 
-export { useStyles };
+  :active {
+    box-shadow: none;
+  }
+
+  :hover {
+    background-color: ${(props) => props.theme.colors.mainTwo};
+  }
+
+  & .MuiTouchRipple-root {
+    color: ${(props) => props.theme.colors.mainOneDarkShadow};
+  }
+`;
+
+export { HomeFabIcon };

@@ -1,16 +1,12 @@
 import React from "react";
-import { useStyles } from "./styles";
-import Fab from "@material-ui/core/Fab";
-import { DefaultTheme, withTheme } from "styled-components";
+import { HomeFabIcon } from "./styles";
 
 export interface Props {
   onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
-  theme: DefaultTheme;
   children: React.ReactElement<any>;
 }
 
 function HomeHeaderIcon(props: Props) {
-  const classes = useStyles(props);
   const { onClick, children } = props;
   const pressButton = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (typeof onClick === "function") {
@@ -19,12 +15,10 @@ function HomeHeaderIcon(props: Props) {
   };
 
   return (
-    <div className={classes.homeIcon}>
-      <Fab aria-label="menu-icon" onClick={pressButton}>
-        {children}
-      </Fab>
-    </div>
+    <HomeFabIcon aria-label="home-icon" onClick={pressButton}>
+      {children}
+    </HomeFabIcon>
   );
 }
 
-export default withTheme(HomeHeaderIcon);
+export default HomeHeaderIcon;

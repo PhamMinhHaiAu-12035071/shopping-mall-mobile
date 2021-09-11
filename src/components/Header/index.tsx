@@ -7,19 +7,28 @@ interface Props {
   headerLeft?: React.FC<ReactSVGElement> | React.ReactElement;
   title?: string;
   headerTitleStyle?: React.CSSProperties;
+  headerTitle?: React.ReactElement;
   headerRight?: React.FC<ReactSVGElement> | React.ReactElement;
   headerStyle?: React.CSSProperties;
   onBack?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const defaultProps: Props = {
-  title: "This is Title",
+  title: "",
   headerTitleStyle: {},
   headerStyle: {},
 };
 
 function Header(props: Props) {
-  const { headerLeft, onBack, title, headerRight } = props;
+  const {
+    headerLeft,
+    onBack,
+    title,
+    headerRight,
+    headerStyle,
+    headerTitleStyle,
+    headerTitle,
+  } = props;
 
   const pressBack = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (typeof onBack === "function") {
@@ -36,12 +45,16 @@ function Header(props: Props) {
       );
     return headerLeft;
   };
+  const renderTitle = () => {
+    if (title !== "") {
+      return <div style={headerTitleStyle}>{title}</div>;
+    }
+    return headerTitle;
+  };
   return (
-    <Container>
+    <Container style={headerStyle}>
       <LeftIcon>{renderBackIcon()}</LeftIcon>
-      <Title>
-        <div>{title}</div>
-      </Title>
+      <Title>{renderTitle()}</Title>
       <RightIcon>{headerRight}</RightIcon>
     </Container>
   );

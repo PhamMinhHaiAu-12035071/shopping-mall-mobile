@@ -5,6 +5,7 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import ThemeContainer from "./ThemeContainer";
+import "./i18n";
 
 ReactDOM.render(
   <React.StrictMode>
