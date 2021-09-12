@@ -11,15 +11,15 @@ import { default as HeaderCommon } from "../../../../components/Header";
 import HomeHeaderIcon from "../../../../components/HomeHeaderIcon";
 import { ReactComponent as MenuSvg } from "../../../../assets/images/menu.svg";
 import { ReactComponent as SearchSvg } from "../../../../assets/images/search.svg";
-import CheckedSVG from "../../../../components/CheckedSVG";
 import { useTranslation } from "react-i18next";
+import CheckedSVG from "../../../../components/CheckedSVG";
 
 function Header() {
   const { t } = useTranslation("home");
-  const renderIcon = (icon: React.ReactElement<any>): React.ReactElement => {
+  const renderIcon = (icon: React.ReactElement): React.ReactElement => {
     return <HomeHeaderIcon>{icon}</HomeHeaderIcon>;
   };
-  const renderTitle = () => {
+  const renderTitle = (): React.ReactElement => {
     return (
       <Col>
         <Row>

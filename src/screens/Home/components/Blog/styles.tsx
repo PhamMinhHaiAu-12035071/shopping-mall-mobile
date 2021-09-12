@@ -1,4 +1,5 @@
 import styled, { css, DefaultTheme } from "styled-components";
+import { device } from "../../../../constants/devices";
 
 const cssText = css<{ theme: DefaultTheme }>`
   font-family: "Manrope Bold", serif;
@@ -41,6 +42,9 @@ const Banner = styled.div`
   height: 54%;
   display: flex;
   flex-direction: column;
+  @media ${device.mobileM} {
+    width: 50%;
+  }
 `;
 
 const TextApp = styled.span<{ theme: DefaultTheme }>`

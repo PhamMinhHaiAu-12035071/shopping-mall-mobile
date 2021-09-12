@@ -4,13 +4,13 @@ import "./index.scss";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import ThemeContainer from "./ThemeContainer";
 import "./i18n";
+import StoreContainer from "./StoreContainer";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeContainer />
+      <StoreContainer />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

@@ -76,6 +76,16 @@ const Col = styled.div<{ theme: DefaultTheme }>`
 const WrapperArrFood = styled.div`
   margin-top: 18px;
 `;
+
+/* Skeleton */
+const ColSkeleton = styled.div<{ theme: DefaultTheme }>`
+  flex: 0 0 46.5%;
+  max-width: 46.5%;
+  padding-top: 58%;
+  border-radius: 20px;
+  border: 1px solid ${(props) => props.theme.colors.box};
+  overflow: hidden;
+`;
 export {
   Container,
   Row,
@@ -85,4 +95,5 @@ export {
   WrapperArrFood,
   WrapperTitle,
   WrapperViewMore,
+  ColSkeleton,
 };

@@ -1,7 +1,21 @@
 import styled, { DefaultTheme } from "styled-components";
 import Fab from "@material-ui/core/Fab";
+import { motion } from "framer-motion";
 
-const HomeFabIcon = styled(Fab)<{ theme: DefaultTheme }>`
+const HomeFabIcon = styled(Fab).attrs({
+  component: motion.div,
+  initial: {
+    y: -20,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.25,
+    },
+  },
+})<{ theme: DefaultTheme }>`
   border-radius: 9999px;
   background-color: ${(props) => props.theme.colors.mainTwo};
   box-shadow: none;

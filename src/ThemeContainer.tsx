@@ -6,10 +6,11 @@ import { lightTheme } from "./themes";
 import GlobalStyle from "./themes/fonts";
 import i18next from "i18next";
 import { StylesProvider } from "@material-ui/core/styles";
+import SplashScreen from "./screens/SplashScreen";
 
 function ThemeContainer() {
   return (
-    <Suspense fallback="loading">
+    <Suspense fallback={<SplashScreen />}>
       <I18nextProvider i18n={i18next}>
         <ThemeProvider theme={lightTheme}>
           <StylesProvider injectFirst>

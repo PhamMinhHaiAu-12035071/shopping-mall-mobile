@@ -1,19 +1,22 @@
 import React from "react";
-import { Container } from "./styles";
+import { Container, WrapperContent } from "./styles";
 import Header from "./components/Header";
 import Blog from "./components/Blog";
 import ListFood from "./components/ListFood";
 import { useTranslation } from "react-i18next";
+import BottomNavigator from "../../components/BottomNavigator";
 
 function Home() {
   const { t } = useTranslation("home");
-
   return (
     <Container>
+      <WrapperContent>
+        <Blog />
+        <ListFood title={t("home:popularPack")} />
+        <ListFood title={t("home:ourNewItem")} />
+      </WrapperContent>
       <Header />
-      <Blog />
-      <ListFood title={t("home:popularPack")} />
-      <ListFood title={t("home:ourNewItem")} />
+      <BottomNavigator />
     </Container>
   );
 }

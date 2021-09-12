@@ -1,3 +1,6 @@
 {
-  "currentLocation": "Current Location"
+  "homeIcon": "Home",
+  "menuIcon": "Menu",
+  "saveIcon": "Save",
+  "profileIcon": "Profile"
 }

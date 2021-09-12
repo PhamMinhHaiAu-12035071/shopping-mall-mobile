@@ -14,6 +14,7 @@ declare module "styled-components" {
     textP4: string;
     box: string;
     other11: string;
+    light: string;
   }
 
   export interface Typography {

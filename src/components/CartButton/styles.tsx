@@ -2,6 +2,11 @@ import styled, { DefaultTheme } from "styled-components";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import { device } from "../../constants/devices";
+import { SvgIconProps } from "@material-ui/core";
+
+interface AddIconCustomProps extends SvgIconProps {
+  theme: DefaultTheme;
+}
 
 const FabCartIcon = styled(Fab)<{ theme: DefaultTheme }>`
   border-radius: 9999px;
@@ -13,6 +18,9 @@ const FabCartIcon = styled(Fab)<{ theme: DefaultTheme }>`
   @media ${device.mobileS} {
     width: 25px;
     height: 25px;
+    & .MuiSvgIcon-root {
+      font-size: 1.2rem;
+    }
   }
 
   :active {
@@ -30,11 +38,11 @@ const FabCartIcon = styled(Fab)<{ theme: DefaultTheme }>`
   }
 
   & .MuiTouchRipple-root {
-    color: white;
+    color: ${(props) => props.theme.colors.light};
   }
 `;
-const AddIConCart = styled(AddIcon)`
-  color: white;
+const AddIConCart = styled(AddIcon)<AddIconCustomProps>`
+  color: ${(props) => props.theme.colors.light};
 `;
 
 export { FabCartIcon, AddIConCart };

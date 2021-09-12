@@ -3,7 +3,7 @@ import { HomeFabIcon } from "./styles";
 
 export interface Props {
   onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
-  children: React.ReactElement<any>;
+  children: React.ReactElement;
 }
 
 function HomeHeaderIcon(props: Props) {

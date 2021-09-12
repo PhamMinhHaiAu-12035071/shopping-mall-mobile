@@ -13,6 +13,7 @@ const lightTheme: DefaultTheme = {
     textP4: "#C6C4C4",
     box: "#DDDDDD",
     other11: "#db6f21",
+    light: "white",
   },
   typography: {
     displayLargeTitle: 23,

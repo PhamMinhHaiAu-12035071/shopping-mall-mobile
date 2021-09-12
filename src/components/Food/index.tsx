@@ -1,6 +1,7 @@
 import React from "react";
 import CartButton from "../CartButton";
 import {
+  AbsoluteBtnCart,
   Col,
   ColBtnCart,
   ColProduct,
@@ -40,7 +41,9 @@ function Food() {
               </Price>
             </ColProduct>
             <ColBtnCart>
-              <CartButton />
+              <AbsoluteBtnCart>
+                <CartButton />
+              </AbsoluteBtnCart>
             </ColBtnCart>
           </WrapperContent>
         </Flex>

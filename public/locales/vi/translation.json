@@ -1,3 +1,6 @@
 {
-  "currentLocation": "Current Location"
+  "homeIcon": "Trang chủ",
+  "menuIcon": "Thực đơn",
+  "saveIcon": "Lưu trữ",
+  "profileIcon": "Hồ sơ"
 }
