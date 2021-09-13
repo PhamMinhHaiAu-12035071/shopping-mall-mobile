@@ -6,7 +6,13 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "./i18n";
 import StoreContainer from "./StoreContainer";
+import { pwaTrackingListeners } from "./scripts/pwaEventlisteners";
 
+const isBrowser = typeof window !== "undefined";
+
+if (isBrowser) {
+  pwaTrackingListeners();
+}
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
