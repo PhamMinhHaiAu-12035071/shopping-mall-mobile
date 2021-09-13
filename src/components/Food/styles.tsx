@@ -1,16 +1,15 @@
-import styled, { DefaultTheme } from "styled-components";
+import styled, { css, DefaultTheme } from "styled-components";
 import { device } from "../../constants/devices";
-import { Skeleton, SkeletonProps } from "@material-ui/lab";
+import { Skeleton } from "@material-ui/lab";
 
-interface SkeletonCustom extends SkeletonProps {
-  theme: DefaultTheme;
-}
-
-const Container = styled.div`
+const CSSColumn = css`
   display: flex;
   flex-flow: column nowrap;
   height: 100%;
   position: relative;
+`;
+const Container = styled.div`
+  ${CSSColumn};
 `;
 
 const Col = styled.div`
@@ -19,10 +18,7 @@ const Col = styled.div`
   max-height: 50%;
 `;
 const Flex = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  position: relative;
+  ${CSSColumn};
 `;
 const WrapperImage = styled.div`
   display: flex;
@@ -49,9 +45,7 @@ const WrapperContent = styled.div`
 const ColProduct = styled.div`
   flex: 0 0 75%;
   max-width: 75%;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  ${CSSColumn};
   justify-content: flex-end;
 `;
 const ColBtnCart = styled.div`
@@ -72,7 +66,6 @@ const AbsoluteBtnCart = styled.div`
 `;
 const Title = styled.span<{ theme: DefaultTheme }>`
   font-family: "Manrope Bold", serif;
-  font-weight: 700;
   font-size: ${(props) => props.theme.typography.displayTitle3}px;
   color: ${(props) => props.theme.colors.textH1};
   line-height: 23px;
@@ -83,7 +76,6 @@ const Title = styled.span<{ theme: DefaultTheme }>`
 
 const TextDetail = styled.span`
   font-family: "Manrope", serif;
-  font-weight: 200;
   font-size: ${(props) => props.theme.typography.displayTitle3}px;
   color: ${(props) => props.theme.colors.textP2};
   line-height: 23px;
@@ -92,15 +84,13 @@ const TextDetail = styled.span`
   text-overflow: ellipsis;
 `;
 const Price = styled.span`
-  font-family: "Manrope", serif;
-  font-weight: 700;
+  font-family: "Manrope Bold", serif;
   font-size: ${(props) => props.theme.typography.displayTitle2}px;
   color: ${(props) => props.theme.colors.textH1};
   line-height: 23px;
 `;
 const DeprecatedPrice = styled.span`
   font-family: "Manrope", serif;
-  font-weight: 200;
   font-size: ${(props) => props.theme.typography.displayTitle3}px;
   color: ${(props) => props.theme.colors.textP4};
   line-height: 23px;
@@ -109,19 +99,79 @@ const DeprecatedPrice = styled.span`
 `;
 
 /* Skeleton */
-const Layer = styled.div`
+const CSSAbsolute = css`
+  position: absolute;
+  left: 12px;
+  width: 100%;
+  height: 100%;
+`;
+const Absolute = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 `;
-const WrapperSkeleton = styled(Skeleton).attrs({
+const SkeletonContainer = styled(Skeleton).attrs({
+  animation: "wave",
   width: "100%",
   height: "100%",
-  animation: "wave",
   variant: "rect",
-})<SkeletonCustom>``;
+})`
+  border-radius: 20px;
+`;
+const AbsoluteTitle = styled.div`
+  ${CSSAbsolute};
+  top: 55%;
+`;
+const TitleSkeleton = styled(Skeleton).attrs({
+  animation: "wave",
+  width: "50%",
+  height: 14,
+  variant: "rect",
+})`
+  background-color: white;
+  border-radius: 7px;
+`;
+const AbsoluteDetail = styled.div`
+  ${CSSAbsolute};
+  top: calc(55% + 24px);
+`;
+const DetailSkeleton = styled(Skeleton).attrs({
+  animation: "wave",
+  width: "70%",
+  height: 14,
+  variant: "rect",
+})`
+  background-color: white;
+  border-radius: 7px;
+`;
+const AbsolutePrice = styled.div`
+  ${CSSAbsolute};
+  top: calc(55% + 48px);
+`;
+const PriceSkeleton = styled(Skeleton).attrs({
+  animation: "wave",
+  width: "40%",
+  height: 16,
+  variant: "rect",
+})`
+  background-color: white;
+  border-radius: 8px;
+`;
+const AbsoluteCart = styled.div`
+  ${CSSAbsolute};
+  top: calc(55% + 42px);
+  left: calc(100% - 32px);
+`;
+const CartSkeleton = styled(Skeleton).attrs({
+  animation: "wave",
+  width: 25,
+  height: 25,
+  variant: "circle",
+})`
+  background-color: white;
+`;
 export {
   Container,
   Col,
@@ -136,6 +186,14 @@ export {
   Price,
   DeprecatedPrice,
   AbsoluteBtnCart,
-  Layer,
-  WrapperSkeleton,
+  Absolute,
+  SkeletonContainer,
+  AbsoluteTitle,
+  TitleSkeleton,
+  AbsoluteDetail,
+  DetailSkeleton,
+  AbsolutePrice,
+  PriceSkeleton,
+  AbsoluteCart,
+  CartSkeleton,
 };

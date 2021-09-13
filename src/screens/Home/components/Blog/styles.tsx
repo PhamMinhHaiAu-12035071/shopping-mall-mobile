@@ -3,7 +3,6 @@ import { device } from "../../../../constants/devices";
 
 const cssText = css<{ theme: DefaultTheme }>`
   font-family: "Manrope Bold", serif;
-  font-weight: ${(props) => props.theme.fontWeight.fwBold};
   text-transform: capitalize;
 `;
 

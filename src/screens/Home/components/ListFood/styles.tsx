@@ -3,7 +3,6 @@ import styled, { css, DefaultTheme } from "styled-components";
 
 const CSSTitle = css<{ theme: DefaultTheme }>`
   font-family: "Manrope Bold", serif;
-  font-weight: ${(props) => props.theme.fontWeight.fwBold};
 `;
 const Container = styled.div`
   display: flex;
@@ -81,10 +80,10 @@ const WrapperArrFood = styled.div`
 const ColSkeleton = styled.div<{ theme: DefaultTheme }>`
   flex: 0 0 46.5%;
   max-width: 46.5%;
-  padding-top: 58%;
   border-radius: 20px;
-  border: 1px solid ${(props) => props.theme.colors.box};
   overflow: hidden;
+  padding-top: 59%;
+  position: relative;
 `;
 export {
   Container,

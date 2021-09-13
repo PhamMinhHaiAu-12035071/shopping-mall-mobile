@@ -40,7 +40,7 @@ const TitleLocation = styled(motion.span).attrs({
     },
   },
 })<{ theme: DefaultTheme }>`
-  font-family: "Manrope SemiBold", serif;
+  font-family: "Manrope Bold", serif;
   font-size: ${(props: { theme: DefaultTheme }) =>
     props.theme.typography.displayLargeTitle}px;
   color: ${(props: { theme: DefaultTheme }) => props.theme.colors.textH1};
@@ -64,9 +64,8 @@ const Location = styled(motion.span).attrs({
     },
   },
 })<{ theme: DefaultTheme }>`
-  font-family: "Manrope Light", serif;
+  font-family: "Manrope", serif;
   font-size: ${(props) => props.theme.typography.displayTitle3}px;
-  font-weight: ${(props) => props.theme.fontWeight.fwLight};
   color: ${(props) => props.theme.colors.textP2};
   overflow: hidden;
   text-overflow: ellipsis;

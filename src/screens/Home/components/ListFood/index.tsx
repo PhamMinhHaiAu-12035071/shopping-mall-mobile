@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Col,
+  ColSkeleton,
   Container,
   Row,
   Title,
@@ -11,6 +12,7 @@ import {
 } from "./styles";
 import Food from "../../../../components/Food";
 import { useTranslation } from "react-i18next";
+import FoodSkeleton from "../../../../components/Food/FoodSkeleton";
 
 interface Props {
   title: string;
@@ -19,6 +21,12 @@ interface Props {
 function ListFood(props: Props) {
   const { title } = props;
   const { t } = useTranslation("home");
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  React.useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
   return (
     <Container>
       <Row>
@@ -31,12 +39,24 @@ function ListFood(props: Props) {
       </Row>
       <WrapperArrFood>
         <Row>
-          <Col>
-            <Food />
-          </Col>
-          <Col>
-            <Food />
-          </Col>
+          {isLoading ? (
+            <ColSkeleton>
+              <FoodSkeleton />
+            </ColSkeleton>
+          ) : (
+            <Col>
+              <Food />
+            </Col>
+          )}
+          {isLoading ? (
+            <ColSkeleton>
+              <FoodSkeleton />
+            </ColSkeleton>
+          ) : (
+            <Col>
+              <Food />
+            </Col>
+          )}
         </Row>
       </WrapperArrFood>
     </Container>
