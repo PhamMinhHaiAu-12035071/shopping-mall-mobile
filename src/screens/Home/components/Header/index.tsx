@@ -16,6 +16,7 @@ import CheckedSVG from "../../../../components/CheckedSVG";
 
 function Header() {
   const { t } = useTranslation("home");
+
   const renderIcon = (icon: React.ReactElement): React.ReactElement => {
     return <HomeHeaderIcon>{icon}</HomeHeaderIcon>;
   };

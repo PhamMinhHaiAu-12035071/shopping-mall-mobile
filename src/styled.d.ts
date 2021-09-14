@@ -15,10 +15,12 @@ declare module "styled-components" {
     box: string;
     other11: string;
     light: string;
+    gray: string;
   }
 
   export interface Typography {
     displayLargeTitle: number;
+    mediumTitle: number;
     displayTitle1: number;
     displayTitle2: number;
     displayTitle3: number;

@@ -14,9 +14,11 @@ const lightTheme: DefaultTheme = {
     box: "#DDDDDD",
     other11: "#db6f21",
     light: "white",
+    gray: "#EAEAE9",
   },
   typography: {
     displayLargeTitle: 23,
+    mediumTitle: 20,
     displayTitle1: 19,
     displayTitle2: 16,
     displayTitle3: 14,
