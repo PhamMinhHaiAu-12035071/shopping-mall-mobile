@@ -1,8 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import { Route, Switch } from "react-router-dom";
 import Detail from "./screens/Detail";
-import Home from "./screens/Home";
-import OnBoard from "./screens/OnBoard";
+import HomeAndOnBoard from "./screens/HomeAndOnBoard";
 
 /**
  * Render a route with potential sub routes
@@ -37,8 +36,7 @@ export function RenderRoutes({ routes }: any) {
 }
 
 const ROUTES = [
-  { path: "/", key: "ROOT", exact: true, component: () => <OnBoard /> },
-  { path: "/home", key: "HOME", exact: true, component: () => <Home /> },
+  { path: "/", key: "ROOT", exact: true, component: () => <HomeAndOnBoard /> },
   { path: "/detail", key: "DETAIL", exact: true, component: () => <Detail /> },
 ];
 
