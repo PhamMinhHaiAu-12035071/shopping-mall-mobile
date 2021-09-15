@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import Detail from "./screens/Detail";
 import Home from "./screens/Home";
 import OnBoard from "./screens/OnBoard";
-import SplashScreen from "./screens/SplashScreen";
 
 /**
  * Render a route with potential sub routes
