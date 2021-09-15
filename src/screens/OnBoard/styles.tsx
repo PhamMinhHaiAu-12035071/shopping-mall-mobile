@@ -14,9 +14,9 @@ interface ProgressProps extends CircularProgressProps {
   theme: DefaultTheme;
 }
 
-const Container = styled.div`
+const Container = styled.div<{ height: number }>`
   width: 100vw;
-  height: 100vh;
+  height: ${(props) => props.height}px;
   position: relative;
   display: flex;
   justify-content: center;
