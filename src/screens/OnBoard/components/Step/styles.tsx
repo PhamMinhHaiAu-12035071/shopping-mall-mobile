@@ -1,13 +1,10 @@
 import styled, { css, DefaultTheme } from "styled-components";
-import { device } from "../../../../constants/devices";
 
 const CSSText = css`
   text-align: center;
   line-height: 30px;
 `;
 const Container = styled.div`
-  padding-left: 12%;
-  padding-right: 12%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,23 +16,15 @@ const WrapperImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1 1 25%;
-`;
-const Image = styled.img`
-  max-width: 100%;
-  height: auto;
-  @media ${device.mobileS} {
-    max-width: 80%;
-  }
-  @media ${device.mobileM} {
-    max-width: 90%;
-  }
+  flex: 0 1 50%;
 `;
 const Title = styled.div<{ theme: DefaultTheme }>`
   font-family: "Manrope Bold", serif;
   ${CSSText};
   font-size: ${(props) => props.theme.typography.mediumTitle}px;
-  margin-top: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Description = styled.div<{ theme: DefaultTheme }>`
@@ -45,19 +34,29 @@ const Description = styled.div<{ theme: DefaultTheme }>`
   height: 90px;
   opacity: 0;
 `;
-const Header = styled.div`
-  flex: 0 1 14%;
+const Footer = styled.div`
+  flex: 0 0 15%;
+  max-height: 15%;
+`;
+const FlexContent = styled.div`
+  padding-top: 8%;
+  padding-bottom: 8%;
+  flex: 0 1 85%;
+  max-height: 85%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: column nowrap;
 `;
 const WrapperContent = styled.div`
-  flex: 1 1 25%;
+  width: 76%;
 `;
-
 export {
   Container,
   WrapperImage,
   Title,
   Description,
-  Header,
+  Footer,
+  FlexContent,
   WrapperContent,
-  Image,
 };

@@ -33,7 +33,13 @@ const Swiper = styled.div`
   padding: 0;
   z-index: 1;
 `;
-const SwiperWrapper = styled(motion.div)`
+const SwiperWrapper = styled(motion.div).attrs({
+  transition: {
+    type: "spring",
+    stiffness: 120,
+    damping: 20,
+  },
+})`
   position: relative;
   width: 100%;
   height: 100%;

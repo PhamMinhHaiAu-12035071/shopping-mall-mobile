@@ -11,54 +11,51 @@ import {
   SwiperWrapper,
   WrapperBtnStep,
 } from "./styles";
-import StepOne from "../../assets/images/on-board-step-one.svg";
-import StepTwo from "../../assets/images/on-board-step-two.svg";
-import StepThree from "../../assets/images/on-board-step-three-temp.svg";
-import { useMotionValue } from "framer-motion";
+import StepOne from "../../assets/images/step-one.png";
+import StepTwo from "../../assets/images/step-two.png";
+import StepThree from "../../assets/images/step-three.png";
 import Step from "./components/Step";
+import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router-dom";
 
 const steps = [
   {
     id: "0",
     svg: StepOne,
-    title: "Browse all the category",
-    description:
-      "in aliquip aute exerciation ut et nisi ut mollit Deserunt dolor elit pariatur aute au dep trai",
+    title: "titleStepOne",
+    description: "descriptionStepOne",
   },
   {
     id: "1",
     svg: StepTwo,
-    title: "Browse all the category",
-    description:
-      "in aliquip aute exerciation ut et nisi ut mollit Deserunt dolor elit pariatur aute au dep trai",
+    title: "titleStepTwo",
+    description: "descriptionStepTwo",
   },
   {
     id: "2",
     svg: StepThree,
-    title: "Browse all the category",
-    description:
-      "in aliquip aute exerciation ut et nisi ut mollit Deserunt dolor elit pariatur aute au dep trai",
+    title: "titleStepThree",
+    description: "descriptionStepThree",
   },
 ];
 
 const STEP = 33.3;
 
 function OnBoard() {
-  const x = useMotionValue(0);
+  const history = useHistory();
+  const { t } = useTranslation("onBoard");
   const [progress, setProgress] = React.useState<number>(STEP);
 
   const nextStep = () => {
+    console.log(progress);
     if (progress < 100) {
       setProgress(Math.round(progress + STEP));
+    } else if (Math.round(progress) === 100) {
+      history.push("/home");
     }
   };
   const animate = {
     x: `-${Math.round(progress / STEP - 1) * 100}%`,
-    transition: {
-      type: "spring",
-      stiffness: 120,
-      damping: 20,
-    },
   };
   return (
     <Container>
@@ -67,7 +64,11 @@ function OnBoard() {
           {steps.map((item) => {
             return (
               <SwiperSlide key={item.id}>
-                <Step {...item} />
+                <Step
+                  {...item}
+                  title={t(`onBoard:${item.title}`)}
+                  description={t(`onBoard:${item.description}`)}
+                />
               </SwiperSlide>
             );
           })}

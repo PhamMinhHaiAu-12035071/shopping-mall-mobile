@@ -9,15 +9,15 @@ import SplashScreen from "./screens/SplashScreen";
 
 function ThemeContainer() {
   return (
-    <Suspense fallback={<SplashScreen />}>
-      <I18nextProvider i18n={i18next}>
-        <ThemeProvider theme={lightTheme}>
-          <StylesProvider injectFirst>
+    <ThemeProvider theme={lightTheme}>
+      <StylesProvider injectFirst>
+        <Suspense fallback={<SplashScreen />}>
+          <I18nextProvider i18n={i18next}>
             <App />
-          </StylesProvider>
-        </ThemeProvider>
-      </I18nextProvider>
-    </Suspense>
+          </I18nextProvider>
+        </Suspense>
+      </StylesProvider>
+    </ThemeProvider>
   );
 }
 

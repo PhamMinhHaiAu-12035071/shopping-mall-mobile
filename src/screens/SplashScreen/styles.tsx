@@ -1,4 +1,11 @@
 import styled, { DefaultTheme } from "styled-components";
+import CircularProgress, {
+  CircularProgressProps,
+} from "@material-ui/core/CircularProgress";
+
+interface ProgressProps extends CircularProgressProps {
+  theme: DefaultTheme;
+}
 
 const Container = styled.div<{ theme: DefaultTheme }>`
   width: 100vw;
@@ -7,7 +14,8 @@ const Container = styled.div<{ theme: DefaultTheme }>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f47458;
+  background-color: white;
+  position: relative;
 `;
 const Row = styled.div`
   height: 30vh;
@@ -23,16 +31,29 @@ const ColText = styled.div`
   flex-flow: column nowrap;
 `;
 const TextLogo = styled.span`
+  font-family: "Gill Sans", sans-serif;
   font-weight: 700;
   font-size: 29px;
   line-height: 39.61px;
-  color: white;
 `;
 const NameApp = styled.span`
-  font-weight: 300;
+  font-family: "Gill Sans", sans-serif;
+  font-weight: 200;
   font-size: 18px;
   line-height: 24.69px;
-  color: white;
 `;
-
-export { Container, Row, ColText, TextLogo, NameApp };
+const Absolute = styled.div`
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  transform: translateX(-50%);
+`;
+const Loading = styled(CircularProgress).attrs({
+  disableShrink: true,
+})<ProgressProps>`
+  color: ${(props) => props.theme.colors.mainOne};
+`;
+export { Container, Row, ColText, TextLogo, NameApp, Absolute, Loading };

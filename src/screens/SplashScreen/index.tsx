@@ -1,5 +1,13 @@
 import React from "react";
-import { ColText, Container, NameApp, Row, TextLogo } from "./styles";
+import {
+  Absolute,
+  ColText,
+  Container,
+  Loading,
+  NameApp,
+  Row,
+  TextLogo,
+} from "./styles";
 import { ReactComponent as CartLogo } from "../../assets/images/cart-splash-screen.svg";
 
 function SplashScreen() {
@@ -12,6 +20,9 @@ function SplashScreen() {
           <NameApp>your daily needs</NameApp>
         </ColText>
       </Row>
+      <Absolute>
+        <Loading />
+      </Absolute>
     </Container>
   );
 }
