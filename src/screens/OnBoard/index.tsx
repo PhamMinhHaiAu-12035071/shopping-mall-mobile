@@ -47,7 +47,6 @@ function OnBoard() {
   const [progress, setProgress] = React.useState<number>(STEP);
 
   const nextStep = () => {
-    console.log(progress);
     if (progress < 100) {
       setProgress(Math.round(progress + STEP));
     } else if (Math.round(progress) === 100) {
