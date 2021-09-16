@@ -35,6 +35,7 @@ const TitleLocation = styled(motion.span).attrs({
     y: 0,
     opacity: 1,
     transition: {
+      delay: 0.25,
       duration: 0.25,
       ease: [0.4, 0.0, 0.2, 1],
     },
@@ -59,6 +60,7 @@ const Location = styled(motion.span).attrs({
     y: 0,
     opacity: 1,
     transition: {
+      delay: 0.25,
       duration: 0.25,
       ease: [0.4, 0.0, 0.2, 1],
     },
@@ -80,6 +82,7 @@ const WrapperIcon = styled(motion.div).attrs({
     y: 0,
     opacity: 1,
     transition: {
+      delay: 0.25,
       duration: 0.25,
       ease: [0.4, 0.0, 0.2, 1],
     },

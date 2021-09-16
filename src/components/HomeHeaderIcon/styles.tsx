@@ -12,7 +12,9 @@ const HomeFabIcon = styled(Fab).attrs({
     y: 0,
     opacity: 1,
     transition: {
+      delay: 0.25,
       duration: 0.25,
+      ease: [0.4, 0.0, 0.2, 1],
     },
   },
 })<{ theme: DefaultTheme }>`

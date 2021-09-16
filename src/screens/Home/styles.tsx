@@ -1,20 +1,35 @@
-import styled from "styled-components";
 import { motion } from "framer-motion";
+import styled from "styled-components";
 
-const Container = styled(motion.div).attrs({
+const SlideTransition = styled(motion.div).attrs({
   initial: {
     opacity: 0,
+    x: "-100%",
   },
   animate: {
-    opacity: 1,
+    opacity: 1.01,
+    x: 0.01,
   },
   exit: {
     opacity: 0,
+    x: "-100%",
+  },
+  transition: {
+    type: "tween",
+    ease: "anticipate",
+    duration: 0.25,
   },
 })`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  position: relative;
+`;
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
 `;
 
 const WrapperContent = styled.div`
@@ -24,4 +39,4 @@ const WrapperContent = styled.div`
   padding-bottom: 60px;
   box-sizing: border-box;
 `;
-export { Container, WrapperContent };
+export { SlideTransition, Container, WrapperContent };

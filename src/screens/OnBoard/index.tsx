@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 import {
   Absolute,
   ArrowIcon,
@@ -6,6 +6,7 @@ import {
   ContainerBtnStep,
   FabButton,
   Progress,
+  STEP,
   Swiper,
   SwiperSlide,
   SwiperWrapper,
@@ -17,6 +18,13 @@ import StepThree from "../../assets/images/step-three.png";
 import Step from "./components/Step";
 import { useTranslation } from "react-i18next";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
+import { useHistory } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../stores/hooks";
+import {
+  selectStepComplete,
+  stepCompleted,
+} from "../../stores/reducers/onBoardReducers";
+import SplashScreen from "../SplashScreen";
 
 const steps = [
   {
@@ -39,31 +47,32 @@ const steps = [
   },
 ];
 
-const STEP = 33.3;
-
-interface Props {
-  setIsStep: Dispatch<SetStateAction<boolean>>;
-}
-
-function OnBoard(props: Props) {
-  const { setIsStep } = props;
-  const { t } = useTranslation("onBoard");
+function OnBoard() {
+  const { t, ready } = useTranslation("onBoard");
   const [progress, setProgress] = React.useState<number>(STEP);
+  const dispatch = useAppDispatch();
+  const step = useAppSelector(selectStepComplete);
   const { height } = useWindowDimensions();
+  const history = useHistory();
   const nextStep = () => {
     if (progress < 100) {
       setProgress(Math.round(progress + STEP));
     } else if (Math.round(progress) === 100) {
-      setIsStep(false);
+      history.push("/home");
+      dispatch(stepCompleted());
     }
   };
-  const animate = {
-    x: `-${Math.round(progress / STEP - 1) * 100}%`,
+  const swiperProps = {
+    step,
+    progress,
   };
+  if (!ready) {
+    return <SplashScreen />;
+  }
   return (
     <Container height={height}>
       <Swiper>
-        <SwiperWrapper animate={animate}>
+        <SwiperWrapper {...swiperProps}>
           {steps.map((item) => {
             return (
               <SwiperSlide key={item.id}>
@@ -79,7 +88,7 @@ function OnBoard(props: Props) {
       </Swiper>
       <WrapperBtnStep>
         <ContainerBtnStep>
-          <Progress value={progress} />
+          <Progress value={step ? 100 : progress} />
           <Absolute>
             <FabButton aria-label="step-icon" onClick={nextStep}>
               <ArrowIcon />

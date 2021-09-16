@@ -5,7 +5,7 @@ const Container = styled.div`
   position: fixed;
   width: 100%;
   height: 60px;
-  bottom: 0;
+  top: calc(100vh - 60px);
 `;
 
 const BottomNavigationCustom = styled(BottomNavigation)`

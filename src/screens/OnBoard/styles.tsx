@@ -1,10 +1,12 @@
 import styled, { DefaultTheme } from "styled-components";
-import { motion } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
 import Fab, { FabProps } from "@material-ui/core/Fab";
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import CircularProgress, {
   CircularProgressProps,
 } from "@material-ui/core/CircularProgress";
+
+const STEP = 33.3;
 
 interface FabButtonProps extends FabProps {
   theme: DefaultTheme;
@@ -12,6 +14,11 @@ interface FabButtonProps extends FabProps {
 
 interface ProgressProps extends CircularProgressProps {
   theme: DefaultTheme;
+}
+
+interface SwiperWrapperProps extends MotionProps {
+  step: boolean;
+  progress: number;
 }
 
 const Container = styled.div<{ height: number }>`
@@ -33,13 +40,20 @@ const Swiper = styled.div`
   padding: 0;
   z-index: 1;
 `;
-const SwiperWrapper = styled(motion.div).attrs({
-  transition: {
-    type: "spring",
-    stiffness: 120,
-    damping: 20,
+const SwiperWrapper = styled(motion.div).attrs((props: SwiperWrapperProps) => ({
+  animate: {
+    x: props.step
+      ? `-${Math.round(100 / STEP - 1) * 100}%`
+      : `-${Math.round(props.progress / STEP - 1) * 100}%`,
   },
-})`
+  transition: props.step
+    ? { duration: 0 }
+    : {
+        type: "spring",
+        stiffness: 120,
+        damping: 20,
+      },
+}))`
   position: relative;
   width: 100%;
   height: 100%;
@@ -129,4 +143,5 @@ export {
   Progress,
   ContainerBtnStep,
   Absolute,
+  STEP,
 };

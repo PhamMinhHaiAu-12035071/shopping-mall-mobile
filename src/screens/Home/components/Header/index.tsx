@@ -13,12 +13,22 @@ import { ReactComponent as MenuSvg } from "../../../../assets/images/menu.svg";
 import { ReactComponent as SearchSvg } from "../../../../assets/images/search.svg";
 import { useTranslation } from "react-i18next";
 import CheckedSVG from "../../../../components/CheckedSVG";
+import { useHistory } from "react-router-dom";
 
 function Header() {
   const { t } = useTranslation("home");
-
-  const renderIcon = (icon: React.ReactElement): React.ReactElement => {
-    return <HomeHeaderIcon>{icon}</HomeHeaderIcon>;
+  const history = useHistory();
+  const renderIcon = (
+    icon: React.ReactElement,
+    onClick: () => void
+  ): React.ReactElement => {
+    return <HomeHeaderIcon onClick={onClick}>{icon}</HomeHeaderIcon>;
+  };
+  const pressBurgerMenu = () => {
+    console.log("press burger menu");
+  };
+  const pressSearch = () => {
+    history.push("/search");
   };
   const renderTitle = (): React.ReactElement => {
     return (
@@ -36,9 +46,9 @@ function Header() {
   return (
     <Container>
       <HeaderCommon
-        headerLeft={renderIcon(<MenuSvg />)}
+        headerLeft={renderIcon(<MenuSvg />, pressBurgerMenu)}
         headerTitle={renderTitle()}
-        headerRight={renderIcon(<SearchSvg />)}
+        headerRight={renderIcon(<SearchSvg />, pressSearch)}
       />
     </Container>
   );

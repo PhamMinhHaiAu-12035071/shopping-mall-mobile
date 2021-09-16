@@ -1,7 +1,9 @@
 import { AnimatePresence } from "framer-motion";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import Detail from "./screens/Detail";
-import HomeAndOnBoard from "./screens/HomeAndOnBoard";
+import SearchProduct from "./screens/SearchProduct";
+import OnBoard from "./screens/OnBoard";
+import Home from "./screens/Home";
 
 /**
  * Render a route with potential sub routes
@@ -23,9 +25,10 @@ function RouteWithSubRoutes(route: any) {
  * Use this component for any new section of routes (any config object that has a "routes" property
  */
 export function RenderRoutes({ routes }: any) {
+  const location = useLocation();
   return (
-    <AnimatePresence>
-      <Switch>
+    <AnimatePresence exitBeforeEnter>
+      <Switch location={location} key={location.pathname}>
         {routes.map((route: any, i: any) => {
           return <RouteWithSubRoutes key={route.key} {...route} />;
         })}
@@ -36,8 +39,15 @@ export function RenderRoutes({ routes }: any) {
 }
 
 const ROUTES = [
-  { path: "/", key: "ROOT", exact: true, component: () => <HomeAndOnBoard /> },
+  { path: "/", key: "GUIDE", exact: true, component: () => <OnBoard /> },
+  { path: "/home", key: "ROOT", exact: true, component: () => <Home /> },
   { path: "/detail", key: "DETAIL", exact: true, component: () => <Detail /> },
+  {
+    path: "/search",
+    key: "SEARCH",
+    exact: true,
+    component: () => <SearchProduct />,
+  },
 ];
 
 export default ROUTES;
