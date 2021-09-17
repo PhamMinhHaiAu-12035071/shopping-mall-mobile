@@ -3,7 +3,6 @@ import { IconButton } from "@material-ui/core";
 import { ReactComponent as SearchIcon } from "../../../assets/images/search.svg";
 import CancelRoundedIcon from "@material-ui/icons/CancelRounded";
 import { ReactComponent as FilterIcon } from "../../../assets/images/filter.svg";
-import useWindowDimensions from "../../../hooks/useWindowDimensions";
 import {
   IconButtonFilter,
   InputSearch,
@@ -17,6 +16,7 @@ import {
 interface Props {
   autoFocus?: boolean;
   search: string;
+  width: number;
   setSearch: Dispatch<SetStateAction<string>>;
   onFocusIn?: () => void;
   onFocusOut?: () => void;
@@ -27,8 +27,7 @@ const defaultProps = {
 };
 
 function Search(props: Props) {
-  const { width } = useWindowDimensions();
-  const { search, setSearch, onFocusIn, onFocusOut, autoFocus } = props;
+  const { search, setSearch, onFocusIn, onFocusOut, autoFocus, width } = props;
   const setTextSearch = (event: React.ChangeEvent<HTMLInputElement>) =>
     setSearch(event.target.value);
   const focusSearch = () => {
@@ -42,7 +41,7 @@ function Search(props: Props) {
     }
   };
   return (
-    <WrapperSearch layout width={width} layoutId={"search"}>
+    <WrapperSearch width={width}>
       <WrapperInput>
         <InputSearch
           autoFocus={autoFocus}

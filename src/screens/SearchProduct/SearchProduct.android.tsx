@@ -16,13 +16,11 @@ import { useHistory } from "react-router-dom";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import Search from "./Search";
 import RecentSearch from "./RecentSearch";
-import { isAndroid } from "react-device-detect";
-import SearchProductAndroid from "./SearchProduct.android";
 
 const HEIGHT_HEADER = 192;
 const PADDING_BOTTOM = 25;
 
-function SearchProduct() {
+function SearchProductAndroid() {
   const history = useHistory();
   const { width, height } = useWindowDimensions();
   const widthSearch = width * 0.75 - 20;
@@ -32,9 +30,6 @@ function SearchProduct() {
   const goBack = () => history.goBack();
   const onFocusIn = () => setIsFocusSearch(true);
   const onFocusOut = () => setIsFocusSearch(false);
-  if (isAndroid) {
-    return <SearchProductAndroid />;
-  }
   return (
     <SlideTransition>
       <Container>
@@ -55,7 +50,7 @@ function SearchProduct() {
               transition={{
                 type: "spring",
                 stiffness: 920,
-                damping: 108,
+                damping: 38,
               }}
             >
               <Search
@@ -76,14 +71,14 @@ function SearchProduct() {
             transition={{
               type: "spring",
               stiffness: 920,
-              damping: 108,
+              damping: 38,
             }}
           >
             Recent Searches
           </TitleRecentSearch>
           <WrapperList
             style={{
-              maxHeight: heightList,
+              maxHeight: isFocusSearch ? heightList : heightList,
             }}
             animate={{
               y: isFocusSearch ? -80 : 0,
@@ -91,7 +86,7 @@ function SearchProduct() {
             transition={{
               type: "spring",
               stiffness: 920,
-              damping: 168,
+              damping: 38,
             }}
           >
             <RecentSearch />
@@ -102,4 +97,4 @@ function SearchProduct() {
   );
 }
 
-export default SearchProduct;
+export default SearchProductAndroid;

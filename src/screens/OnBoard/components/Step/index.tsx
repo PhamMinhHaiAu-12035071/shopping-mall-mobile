@@ -4,6 +4,7 @@ import {
   Description,
   FlexContent,
   Footer,
+  Image,
   Title,
   WrapperContent,
   WrapperImage,
@@ -19,8 +20,6 @@ interface Props {
   description: string;
 }
 
-const ratio = 556 / 512;
-
 function Step(props: Props) {
   const { id, svg, title, description } = props;
   const { width } = useWindowDimensions();
@@ -35,12 +34,7 @@ function Step(props: Props) {
     <Container>
       <FlexContent>
         <WrapperImage>
-          <img
-            src={svg}
-            alt={`step-${id}`}
-            width={width * 0.76}
-            height={width * 0.76 * ratio}
-          />
+          <Image src={svg} alt={`step-${id}`} width={width} />
         </WrapperImage>
         <WrapperContent>
           <Title>{title}</Title>

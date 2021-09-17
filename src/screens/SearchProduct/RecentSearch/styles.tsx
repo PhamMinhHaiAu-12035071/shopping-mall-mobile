@@ -1,28 +1,9 @@
 import styled, { DefaultTheme } from "styled-components";
 import { IconButton, SvgIcon } from "@material-ui/core";
-import { List } from "react-virtualized";
-import { ListProps } from "react-virtualized/dist/es/List";
 
-const PADDING_HORIZONTAL = 20;
-const ROW_HEIGHT = 48;
-
-interface ListPropsRecentSearch extends ListProps {
-  list: Array<string>;
-  width: number;
-  height: number;
-}
-
-const ListRecentSearch = styled(List).attrs((props: ListPropsRecentSearch) => ({
-  rowCount: props.list.length,
-  rowHeight: ROW_HEIGHT,
-  width: props.width - PADDING_HORIZONTAL,
-  height: props.height,
-}))<ListPropsRecentSearch>`
-  padding-right: 20px;
-`;
 const Item = styled.div<{ theme: DefaultTheme }>`
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 40px);
+  min-height: 48px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -53,4 +34,4 @@ const SvgRefresh = styled(SvgIcon).attrs({
 })`
   font-size: 24px;
 `;
-export { ListRecentSearch, Item, Text, ButtonRefresh, SvgRefresh };
+export { Item, Text, ButtonRefresh, SvgRefresh };

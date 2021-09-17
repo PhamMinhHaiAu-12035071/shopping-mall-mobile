@@ -1,6 +1,6 @@
-import { IconButton, IconButtonProps, SvgIcon } from "@material-ui/core";
 import styled, { DefaultTheme } from "styled-components";
 import { motion } from "framer-motion";
+import { IconButton, IconButtonProps, SvgIcon } from "@material-ui/core";
 
 interface ButtonArrowBackProps extends IconButtonProps {
   theme: DefaultTheme;
@@ -34,25 +34,20 @@ const SlideTransition = styled(motion.div).attrs({
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  //overflow: hidden;
 `;
 const Header = styled.div`
   width: 100%;
-  height: 60px;
-  padding: 10px 20px;
+  height: 170px;
   box-sizing: border-box;
-  display: flex;
-  align-items: center;
+  position: relative;
 `;
 const LeftHeader = styled.div`
-  flex: 0 0 15%;
-  max-width: 15%;
-`;
-const RightHeader = styled.div`
-  flex: 0 0 85%;
-  max-width: 85%;
-  display: flex;
-  justify-content: flex-end;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
 `;
 const ButtonArrowBack = styled(IconButton)<ButtonArrowBackProps>`
   padding: 10px;
@@ -76,33 +71,37 @@ const SvgIconBack = styled(SvgIcon).attrs({
 })`
   font-size: 30px;
 `;
-const WrapperSearchFullWidth = styled.div`
+const RightHeader = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+const WrapperRecentSearch = styled(motion.div)`
   width: 100%;
   height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0 40px 0;
 `;
-const WrapperRecentSearch = styled.div`
-  width: 100%;
-  height: auto;
-  padding-left: 20px;
-`;
-const TitleRecentSearch = styled.div<{ theme: DefaultTheme }>`
+const TitleRecentSearch = styled(motion.div)<{ theme: DefaultTheme }>`
   font-family: "Manrope Bold", serif;
   font-size: ${(props) => props.theme.typography.displayTitle2}px;
   color: ${(props) => props.theme.colors.textH1};
+  margin-left: 20px;
+`;
+const WrapperList = styled(motion.div)`
+  width: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 `;
 export {
   SlideTransition,
   Container,
   Header,
   LeftHeader,
-  RightHeader,
   ButtonArrowBack,
   SvgIconBack,
-  WrapperSearchFullWidth,
+  RightHeader,
   WrapperRecentSearch,
   TitleRecentSearch,
+  WrapperList,
 };

@@ -1,4 +1,11 @@
 import styled, { css, DefaultTheme } from "styled-components";
+import { device } from "../../../../constants/devices";
+
+interface ImageProps {
+  width: number;
+}
+
+const ratio = 556 / 512;
 
 const CSSText = css`
   text-align: center;
@@ -17,6 +24,14 @@ const WrapperImage = styled.div`
   justify-content: center;
   align-items: center;
   flex: 0 1 50%;
+`;
+const Image = styled.img<ImageProps>`
+  width: ${(props) => props.width * 0.76}px;
+  height: ${(props) => props.width * 0.76 * ratio}px;
+  @media ${device.mobileS} {
+    width: ${(props) => props.width * 0.6}px;
+    height: ${(props) => props.width * 0.6 * ratio}px;
+  }
 `;
 const Title = styled.div<{ theme: DefaultTheme }>`
   font-family: "Manrope Bold", serif;
@@ -59,4 +74,5 @@ export {
   Footer,
   FlexContent,
   WrapperContent,
+  Image,
 };

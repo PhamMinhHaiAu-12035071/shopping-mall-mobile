@@ -8,9 +8,8 @@ interface WrapperSearchProps {
 }
 
 const WrapperSearch = styled(motion.div)<WrapperSearchProps>`
-  width: ${(props) => props.width * 0.85 - 20}px;
+  width: ${(props) => props.width}px;
   height: 50px;
-  max-width: 285px;
   border: 1px solid ${(props) => props.theme.colors.box};
   border-radius: 10px;
   position: relative;

@@ -1,6 +1,5 @@
 import { AnimatePresence } from "framer-motion";
 import { Route, Switch, useLocation } from "react-router-dom";
-import Detail from "./screens/Detail";
 import SearchProduct from "./screens/SearchProduct";
 import OnBoard from "./screens/OnBoard";
 import Home from "./screens/Home";
@@ -41,7 +40,6 @@ export function RenderRoutes({ routes }: any) {
 const ROUTES = [
   { path: "/", key: "GUIDE", exact: true, component: () => <OnBoard /> },
   { path: "/home", key: "ROOT", exact: true, component: () => <Home /> },
-  { path: "/detail", key: "DETAIL", exact: true, component: () => <Detail /> },
   {
     path: "/search",
     key: "SEARCH",
