@@ -30,6 +30,26 @@ function SearchProductAndroid() {
   const goBack = () => history.goBack();
   const onFocusIn = () => setIsFocusSearch(true);
   const onFocusOut = () => setIsFocusSearch(false);
+  const variantInput = {
+    slideUp: {
+      x: width - 40 - widthSearch,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 920,
+        damping: 38,
+      },
+    },
+    slideDown: {
+      x: (width - 40 - widthSearch) / 2,
+      y: 80,
+      transition: {
+        type: "spring",
+        stiffness: 920,
+        damping: 108,
+      },
+    },
+  };
   return (
     <SlideTransition>
       <Container>
@@ -41,17 +61,8 @@ function SearchProductAndroid() {
               </SvgIconBack>
             </ButtonArrowBack>
             <RightHeader
-              animate={{
-                y: isFocusSearch ? 0 : 80,
-                x: isFocusSearch
-                  ? width - 40 - widthSearch
-                  : (width - 40 - widthSearch) / 2,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 920,
-                damping: 38,
-              }}
+              animate={isFocusSearch ? "slideUp" : "slideDown"}
+              variants={variantInput}
             >
               <Search
                 width={widthSearch}
@@ -82,6 +93,7 @@ function SearchProductAndroid() {
             }}
             animate={{
               y: isFocusSearch ? -80 : 0,
+              // height: isFocusSearch ? 200 : 500,
             }}
             transition={{
               type: "spring",

@@ -77,6 +77,9 @@ const RightHeader = styled(motion.div)`
   left: 0;
 `;
 const WrapperRecentSearch = styled(motion.div)`
+  position: absolute;
+  top: 180px;
+  left: 0;
   width: 100%;
   height: auto;
 `;
