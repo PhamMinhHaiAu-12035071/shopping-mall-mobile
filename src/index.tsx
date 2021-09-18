@@ -7,7 +7,6 @@ import { BrowserRouter } from "react-router-dom";
 import "./i18n";
 import StoreContainer from "./StoreContainer";
 import { pwaTrackingListeners } from "./scripts/pwaEventlisteners";
-import "react-virtualized/styles.css"; // only needs to be imported once
 
 const isBrowser = typeof window !== "undefined";
 

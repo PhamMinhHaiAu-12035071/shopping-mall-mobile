@@ -2,8 +2,7 @@ import styled, { DefaultTheme } from "styled-components";
 import { IconButton, SvgIcon } from "@material-ui/core";
 
 const Item = styled.div<{ theme: DefaultTheme }>`
-  width: calc(100% - 40px);
-  min-height: 48px;
+  margin: 0 20px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -15,6 +14,9 @@ const Text = styled.div<{ theme: DefaultTheme }>`
   font-size: ${(props) => props.theme.typography.displayTitle3}px;
   line-height: 19.12px;
   color: ${(props) => props.theme.colors.textP2};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 const ButtonRefresh = styled(IconButton)<{ theme: DefaultTheme }>`
   color: ${(props) => props.theme.colors.mainOne};

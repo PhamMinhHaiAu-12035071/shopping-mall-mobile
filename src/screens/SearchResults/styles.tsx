@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const SlideTransition = styled(motion.div).attrs({
   initial: {
     opacity: 0,
-    x: "-100%",
+    x: "100%",
   },
   animate: {
     opacity: 1.01,
@@ -12,7 +12,7 @@ const SlideTransition = styled(motion.div).attrs({
   },
   exit: {
     opacity: 0,
-    x: "-100%",
+    x: "100%",
   },
   transition: {
     type: "spring",
@@ -26,17 +26,5 @@ const SlideTransition = styled(motion.div).attrs({
   width: 100%;
   height: 100%;
 `;
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-`;
 
-const WrapperContent = styled.div`
-  width: 100%;
-  height: auto;
-  margin-top: 80px;
-  padding-bottom: 60px;
-  box-sizing: border-box;
-`;
-export { SlideTransition, Container, WrapperContent };
+export { SlideTransition };

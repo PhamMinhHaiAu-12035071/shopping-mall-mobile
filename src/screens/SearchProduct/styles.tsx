@@ -20,9 +20,9 @@ const SlideTransition = styled(motion.div).attrs({
     x: "100%",
   },
   transition: {
-    type: "tween",
-    ease: "anticipate",
-    duration: 0.25,
+    type: "spring",
+    stiffness: 920,
+    damping: 40,
   },
 })`
   position: absolute;
@@ -34,20 +34,20 @@ const SlideTransition = styled(motion.div).attrs({
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  //overflow: hidden;
+  overflow-x: hidden;
 `;
 const Header = styled.div`
   width: 100%;
-  height: 170px;
+  height: 60px;
   box-sizing: border-box;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 `;
 const LeftHeader = styled.div`
-  position: absolute;
-  top: 10px;
-  left: 20px;
-  width: 100%;
-  height: 100%;
+  flex: 0 0 15%;
+  max-width: 15%;
 `;
 const ButtonArrowBack = styled(IconButton)<ButtonArrowBackProps>`
   padding: 10px;
@@ -72,14 +72,12 @@ const SvgIconBack = styled(SvgIcon).attrs({
   font-size: 30px;
 `;
 const RightHeader = styled(motion.div)`
-  position: absolute;
-  top: 0;
-  left: 0;
+  flex: 0 0 85%;
+  max-width: 85%;
+  display: flex;
+  justify-content: flex-end;
 `;
 const WrapperRecentSearch = styled(motion.div)`
-  position: absolute;
-  top: 180px;
-  left: 0;
   width: 100%;
   height: auto;
 `;
@@ -87,15 +85,9 @@ const TitleRecentSearch = styled(motion.div)<{ theme: DefaultTheme }>`
   font-family: "Manrope Bold", serif;
   font-size: ${(props) => props.theme.typography.displayTitle2}px;
   color: ${(props) => props.theme.colors.textH1};
-  margin-left: 20px;
+  margin: 20px;
 `;
-const WrapperList = styled(motion.div)`
-  width: 100%;
-  overflow-y: scroll;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-`;
+const WrapperList = styled(motion.div)``;
 export {
   SlideTransition,
   Container,

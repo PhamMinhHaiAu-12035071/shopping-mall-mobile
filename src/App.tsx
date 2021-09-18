@@ -25,7 +25,7 @@ function App() {
   const { width, height } = useWindowDimensions();
   return (
     <Container width={width} height={height}>
-      <AnimatePresence exitBeforeEnter initial={false}>
+      <AnimatePresence initial={false}>
         <Switch location={location} key={location.pathname}>
           <Route path={"/"} exact component={OnBoard} />
           <Route path={"/home"} exact component={Home} />

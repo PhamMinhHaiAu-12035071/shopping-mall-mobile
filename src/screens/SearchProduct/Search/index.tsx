@@ -20,6 +20,8 @@ interface Props {
   setSearch: Dispatch<SetStateAction<string>>;
   onFocusIn?: () => void;
   onFocusOut?: () => void;
+  onSearch?: (strSearch: string) => void;
+  onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const defaultProps = {
@@ -27,7 +29,16 @@ const defaultProps = {
 };
 
 function Search(props: Props) {
-  const { search, setSearch, onFocusIn, onFocusOut, autoFocus, width } = props;
+  const {
+    search,
+    setSearch,
+    onFocusIn,
+    onFocusOut,
+    autoFocus,
+    width,
+    onSearch,
+    onKeyPress,
+  } = props;
   const setTextSearch = (event: React.ChangeEvent<HTMLInputElement>) =>
     setSearch(event.target.value);
   const focusSearch = () => {
@@ -40,6 +51,16 @@ function Search(props: Props) {
       onFocusOut();
     }
   };
+  const pressSearch = () => {
+    if (typeof onSearch === "function") {
+      onSearch(search);
+    }
+  };
+  const onKeyPressSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (typeof onKeyPress === "function") {
+      onKeyPress(event);
+    }
+  };
   return (
     <WrapperSearch width={width}>
       <WrapperInput>
@@ -49,10 +70,11 @@ function Search(props: Props) {
           onChange={setTextSearch}
           onFocus={focusSearch}
           onBlur={focusOutSearch}
+          onKeyPress={onKeyPressSearch}
           InputProps={{
             disableUnderline: true,
             startAdornment: (
-              <IconButton>
+              <IconButton onClick={pressSearch}>
                 <SvgIconSearch>
                   <SearchIcon />
                 </SvgIconSearch>
