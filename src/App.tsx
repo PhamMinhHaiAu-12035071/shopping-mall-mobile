@@ -6,6 +6,7 @@ import SearchProduct from "./screens/SearchProduct";
 import OnBoard from "./screens/OnBoard";
 import useWindowDimensions from "./hooks/useWindowDimensions";
 import styled, { DefaultTheme } from "styled-components";
+import SelectTheme from "./screens/SelectTheme";
 
 interface ContainerProps {
   theme: DefaultTheme;
@@ -27,6 +28,7 @@ function App() {
     <Container width={width} height={height}>
       <AnimatePresence initial={false}>
         <Switch location={location} key={location.pathname}>
+          <Route path={"/select-theme"} exact component={SelectTheme} />
           <Route path={"/"} exact component={OnBoard} />
           <Route path={"/home"} exact component={Home} />
           <Route path={"/search"} exact component={SearchProduct} />

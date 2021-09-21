@@ -17,6 +17,7 @@ const lightTheme: DefaultTheme = {
     gray: "#EAEAE9",
   },
   typography: {
+    displayExtraLargeTitle: 25,
     displayLargeTitle: 23,
     mediumTitle: 20,
     displayTitle1: 19,

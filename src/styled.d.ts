@@ -19,6 +19,7 @@ declare module "styled-components" {
   }
 
   export interface Typography {
+    displayExtraLargeTitle: number;
     displayLargeTitle: number;
     mediumTitle: number;
     displayTitle1: number;

@@ -12,6 +12,7 @@ import {
   WrapperInput,
   WrapperSearch,
 } from "./styles";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   autoFocus?: boolean;
@@ -22,6 +23,7 @@ interface Props {
   onFocusOut?: () => void;
   onSearch?: (strSearch: string) => void;
   onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  onFilter?: () => void;
 }
 
 const defaultProps = {
@@ -38,7 +40,9 @@ function Search(props: Props) {
     width,
     onSearch,
     onKeyPress,
+    onFilter,
   } = props;
+  const { t } = useTranslation("searchProduct");
   const setTextSearch = (event: React.ChangeEvent<HTMLInputElement>) =>
     setSearch(event.target.value);
   const focusSearch = () => {
@@ -59,6 +63,11 @@ function Search(props: Props) {
   const onKeyPressSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (typeof onKeyPress === "function") {
       onKeyPress(event);
+    }
+  };
+  const pressFilter = () => {
+    if (typeof onFilter === "function") {
+      onFilter();
     }
   };
   return (
@@ -86,10 +95,11 @@ function Search(props: Props) {
               </IconButton>
             ),
           }}
+          placeholder={t("searchProduct:search")}
         />
       </WrapperInput>
       <WrapperIconFilter>
-        <IconButtonFilter>
+        <IconButtonFilter onClick={pressFilter}>
           <SvgIconFilter>
             <FilterIcon />
           </SvgIconFilter>

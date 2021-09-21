@@ -49,6 +49,7 @@ const steps = [
 
 function OnBoard() {
   const { t, ready } = useTranslation("onBoard");
+  const [delayShow, setDelayShow] = React.useState<boolean>(false);
   const [progress, setProgress] = React.useState<number>(STEP);
   const dispatch = useAppDispatch();
   const step = useAppSelector(selectStepComplete);
@@ -66,6 +67,13 @@ function OnBoard() {
     step,
     progress,
   };
+  React.useEffect(() => {
+    if (ready) {
+      setTimeout(() => {
+        setDelayShow(true);
+      }, 500);
+    }
+  }, [ready]);
   if (!ready) {
     return <SplashScreen />;
   }

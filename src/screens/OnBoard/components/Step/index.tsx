@@ -28,7 +28,7 @@ function Step(props: Props) {
     const ellipsis = new Ellipsis(descriptionRef.current);
     ellipsis.calc();
     ellipsis.set();
-    descriptionRef.current.style.opacity = "1";
+    descriptionRef.current.style.opacity = "0.6";
   }, []);
   return (
     <Container>
@@ -36,7 +36,7 @@ function Step(props: Props) {
         <WrapperImage>
           <Image src={svg} alt={`step-${id}`} width={width} />
         </WrapperImage>
-        <WrapperContent>
+        <WrapperContent width={width}>
           <Title>{title}</Title>
           <Description ref={descriptionRef}>
             <div>{description}</div>

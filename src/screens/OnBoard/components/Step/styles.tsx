@@ -7,10 +7,10 @@ interface ImageProps {
 
 const ratio = 556 / 512;
 
-const CSSText = css`
-  text-align: center;
-  line-height: 30px;
-`;
+interface WrapperContentProps {
+  width: number;
+}
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -34,20 +34,27 @@ const Image = styled.img<ImageProps>`
   }
 `;
 const Title = styled.div<{ theme: DefaultTheme }>`
-  font-family: "Manrope Bold", serif;
-  ${CSSText};
-  font-size: ${(props) => props.theme.typography.mediumTitle}px;
+  width: 100%;
+  font-family: "Mullish", sans-serif;
+  font-weight: 900;
+  text-align: center;
+  font-size: ${(props) => props.theme.typography.displayExtraLargeTitle}px;
+  line-height: 31.38px;
+  letter-spacing: -0.33px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
 const Description = styled.div<{ theme: DefaultTheme }>`
-  font-family: "Manrope", serif;
-  ${CSSText};
-  font-size: ${(props) => props.theme.typography.displayTitle1}px;
+  font-family: "Gilroy-Medium", sans-serif;
+  font-size: ${(props) => props.theme.typography.displayTitle2}px;
+  line-height: 30px;
+  letter-spacing: 0.005em;
+  text-align: center;
   height: 90px;
   opacity: 0;
+  transition: opacity 0.5s;
 `;
 const Footer = styled.div`
   flex: 0 0 15%;
@@ -63,8 +70,15 @@ const FlexContent = styled.div`
   align-items: center;
   flex-flow: column nowrap;
 `;
-const WrapperContent = styled.div`
-  width: 76%;
+const WrapperContent = styled.div<WrapperContentProps>`
+  width: ${(props) => props.width * 0.8}px;
+  height: 140px;
+  max-height: 140px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
 `;
 export {
   Container,

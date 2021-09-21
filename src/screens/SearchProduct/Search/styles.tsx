@@ -62,7 +62,6 @@ const InputSearch = styled(TextField).attrs({
   type: "text",
   variant: "standard",
   autoComplete: "off",
-  placeholder: "Search",
 })`
   & #search-product {
     font-family: "Manrope", serif;
