@@ -8,6 +8,8 @@ import {
   Title,
   WrapperContent,
   WrapperImage,
+  Spacing,
+  SpacingContent,
 } from "./styles";
 import useWindowDimensions from "../../../../hooks/useWindowDimensions";
 
@@ -22,7 +24,7 @@ interface Props {
 
 function Step(props: Props) {
   const { id, svg, title, description } = props;
-  const { width } = useWindowDimensions();
+  const { width, height } = useWindowDimensions();
   const descriptionRef = React.useRef<any>();
   React.useLayoutEffect(() => {
     const ellipsis = new Ellipsis(descriptionRef.current);
@@ -32,18 +34,21 @@ function Step(props: Props) {
   }, []);
   return (
     <Container>
-      <FlexContent>
+      <FlexContent height={height}>
         <WrapperImage>
           <Image src={svg} alt={`step-${id}`} width={width} />
         </WrapperImage>
+        <SpacingContent />
         <WrapperContent width={width}>
           <Title>{title}</Title>
+          <SpacingContent />
           <Description ref={descriptionRef}>
             <div>{description}</div>
           </Description>
         </WrapperContent>
       </FlexContent>
-      <Footer />
+      <Spacing />
+      <Footer height={height} />
     </Container>
   );
 }

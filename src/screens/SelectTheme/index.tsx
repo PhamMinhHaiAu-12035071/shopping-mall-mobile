@@ -7,6 +7,8 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../stores/hooks";
+import { selectNameTheme, setTheme } from "../../stores/reducers/themeReducers";
 
 const Container = styled.div`
   width: 100%;
@@ -22,10 +24,11 @@ const Absolute = styled.div`
 
 function SelectTheme() {
   const history = useHistory();
-  const [value, setValue] = React.useState("orange");
+  const dispatch = useAppDispatch();
+  const value = useAppSelector(selectNameTheme);
 
   const handleChange = (event: any) => {
-    setValue(event.target.value);
+    dispatch(setTheme(event.target.value));
   };
   const onSave = () => {
     history.push("/");

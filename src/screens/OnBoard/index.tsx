@@ -4,6 +4,7 @@ import {
   ArrowIcon,
   Container,
   ContainerBtnStep,
+  ContainerBtnStepAbsolute,
   FabButton,
   Progress,
   STEP,
@@ -12,9 +13,6 @@ import {
   SwiperWrapper,
   WrapperBtnStep,
 } from "./styles";
-import StepOne from "../../assets/images/step-one.png";
-import StepTwo from "../../assets/images/step-two.png";
-import StepThree from "../../assets/images/step-three.png";
 import Step from "./components/Step";
 import { useTranslation } from "react-i18next";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
@@ -25,31 +23,37 @@ import {
   stepCompleted,
 } from "../../stores/reducers/onBoardReducers";
 import SplashScreen from "../SplashScreen";
+import { DefaultTheme, withTheme } from "styled-components";
 
-const steps = [
-  {
-    id: "0",
-    svg: StepOne,
-    title: "titleStepOne",
-    description: "descriptionStepOne",
-  },
-  {
-    id: "1",
-    svg: StepTwo,
-    title: "titleStepTwo",
-    description: "descriptionStepTwo",
-  },
-  {
-    id: "2",
-    svg: StepThree,
-    title: "titleStepThree",
-    description: "descriptionStepThree",
-  },
-];
+interface Props {
+  theme: DefaultTheme;
+}
 
-function OnBoard() {
+function OnBoard(props: Props) {
+  const { circleColor, circleDisabledColor } =
+    props.theme.colors.onBoardScreenColor;
+  const { stepOne, stepTwo, stepThree } = props.theme.onBoardImage;
+  const steps = [
+    {
+      id: "0",
+      svg: stepOne,
+      title: "titleStepOne",
+      description: "descriptionStepOne",
+    },
+    {
+      id: "1",
+      svg: stepTwo,
+      title: "titleStepTwo",
+      description: "descriptionStepTwo",
+    },
+    {
+      id: "2",
+      svg: stepThree,
+      title: "titleStepThree",
+      description: "descriptionStepThree",
+    },
+  ];
   const { t, ready } = useTranslation("onBoard");
-  const [delayShow, setDelayShow] = React.useState<boolean>(false);
   const [progress, setProgress] = React.useState<number>(STEP);
   const dispatch = useAppDispatch();
   const step = useAppSelector(selectStepComplete);
@@ -67,13 +71,6 @@ function OnBoard() {
     step,
     progress,
   };
-  React.useEffect(() => {
-    if (ready) {
-      setTimeout(() => {
-        setDelayShow(true);
-      }, 500);
-    }
-  }, [ready]);
   if (!ready) {
     return <SplashScreen />;
   }
@@ -96,7 +93,10 @@ function OnBoard() {
       </Swiper>
       <WrapperBtnStep>
         <ContainerBtnStep>
-          <Progress value={step ? 100 : progress} />
+          <ContainerBtnStepAbsolute>
+            <Progress value={100} colorProgress={circleDisabledColor} />
+          </ContainerBtnStepAbsolute>
+          <Progress value={step ? 100 : progress} colorProgress={circleColor} />
           <Absolute>
             <FabButton aria-label="step-icon" onClick={nextStep}>
               <ArrowIcon />
@@ -108,4 +108,4 @@ function OnBoard() {
   );
 }
 
-export default OnBoard;
+export default withTheme(OnBoard);

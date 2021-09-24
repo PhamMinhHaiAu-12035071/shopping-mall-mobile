@@ -1,3 +1,3 @@
-import lightTheme from "./lightTheme";
+import orangeTheme from "./orangeTheme";
 
-export { lightTheme };
+export { orangeTheme };

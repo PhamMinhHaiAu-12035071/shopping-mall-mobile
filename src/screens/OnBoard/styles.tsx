@@ -5,8 +5,11 @@ import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import CircularProgress, {
   CircularProgressProps,
 } from "@material-ui/core/CircularProgress";
+import { device } from "../../constants/devices";
 
 const STEP = 33.3;
+const SIZE_CIRCLE_PROGRESS = 70;
+const SIZE_CIRCLE_STEP = 48;
 
 interface FabButtonProps extends FabProps {
   theme: DefaultTheme;
@@ -14,6 +17,7 @@ interface FabButtonProps extends FabProps {
 
 interface ProgressProps extends CircularProgressProps {
   theme: DefaultTheme;
+  colorProgress: string;
 }
 
 interface SwiperWrapperProps extends MotionProps {
@@ -75,48 +79,61 @@ const SwiperSlide = styled.div`
 `;
 const WrapperBtnStep = styled.div`
   position: absolute;
-  width: 70px;
-  height: 70px;
-  bottom: 5%;
-  left: calc(50% - 35px);
+  width: ${SIZE_CIRCLE_PROGRESS}px;
+  height: ${SIZE_CIRCLE_PROGRESS}px;
+  bottom: 32px;
+  left: calc(50% - ${SIZE_CIRCLE_PROGRESS / 2}px);
   z-index: 1;
+  @media ${device.mobileS} {
+    bottom: 16px;
+  }
 `;
 const ContainerBtnStep = styled.div<{ theme: DefaultTheme }>`
   position: relative;
-  width: 70px;
-  height: 70px;
-  background-color: ${(props) => props.theme.colors.gray};
-  border-radius: 35px;
+  width: ${SIZE_CIRCLE_PROGRESS}px;
+  height: ${SIZE_CIRCLE_PROGRESS}px;
+  background-color: white;
+  border-radius: ${SIZE_CIRCLE_PROGRESS / 2}px;
+`;
+const ContainerBtnStepAbsolute = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 const Absolute = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 56px;
-  height: 56px;
+  width: ${SIZE_CIRCLE_STEP}px;
+  height: ${SIZE_CIRCLE_STEP}px;
   box-sizing: border-box;
   transform: translate(-50%, -50%);
 `;
 const FabButton = styled(Fab)<FabButtonProps>`
-  background-color: ${(props) => props.theme.colors.mainOne};
-  box-shadow: none;
-  border: 3px solid white;
+  background-color: ${(props) =>
+    props.theme.colors.onBoardScreenColor.circleColor};
+  box-shadow: 0 2px 11px
+    ${(props) => props.theme.colors.onBoardScreenColor.circleShadowColor};
+  width: ${SIZE_CIRCLE_STEP}px;
+  height: ${SIZE_CIRCLE_STEP}px;
 
   :active {
     box-shadow: none;
   }
 
   :hover {
-    background-color: ${(props) => props.theme.colors.other11};
+    background-color: ${(props) =>
+      props.theme.colors.onBoardScreenColor.circleHoverColor};
   }
 
   & .MuiTouchRipple-root {
-    color: ${(props) => props.theme.colors.light};
+    color: white;
   }
 
   @media (pointer: coarse) {
     :hover {
-      background-color: ${(props) => props.theme.colors.mainOne};
+      background-color: ${(props) =>
+        props.theme.colors.onBoardScreenColor.circleColor};
     }
   }
 `;
@@ -127,9 +144,9 @@ const ArrowIcon = styled(ArrowRightAltIcon)`
 const Progress = styled(CircularProgress).attrs({
   variant: "determinate",
 })<ProgressProps>`
-  width: 70px !important;
-  height: 70px !important;
-  color: ${(props) => props.theme.colors.mainOne};
+  width: ${SIZE_CIRCLE_PROGRESS}px !important;
+  height: ${SIZE_CIRCLE_PROGRESS}px !important;
+  color: ${(props) => props.colorProgress};
 `;
 
 export {
@@ -144,4 +161,5 @@ export {
   ContainerBtnStep,
   Absolute,
   STEP,
+  ContainerBtnStepAbsolute,
 };
