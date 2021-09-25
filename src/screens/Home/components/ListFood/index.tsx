@@ -4,6 +4,8 @@ import {
   ColSkeleton,
   Container,
   Row,
+  SkeletonTitle,
+  SkeletonViewMore,
   Title,
   ViewMore,
   WrapperArrFood,
@@ -20,7 +22,7 @@ interface Props {
 
 function ListFood(props: Props) {
   const { title } = props;
-  const { t } = useTranslation("home");
+  const { t, ready } = useTranslation("home");
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   React.useEffect(() => {
     setTimeout(() => {
@@ -30,12 +32,21 @@ function ListFood(props: Props) {
   return (
     <Container>
       <Row>
-        <WrapperTitle>
-          <Title>{title}</Title>
-        </WrapperTitle>
-        <WrapperViewMore>
-          <ViewMore>{t("home:viewAll")}</ViewMore>
-        </WrapperViewMore>
+        {ready ? (
+          <React.Fragment>
+            <WrapperTitle>
+              <Title>{title}</Title>
+            </WrapperTitle>
+            <WrapperViewMore>
+              <ViewMore>{t("home:viewAll")}</ViewMore>
+            </WrapperViewMore>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <SkeletonTitle />
+            <SkeletonViewMore />
+          </React.Fragment>
+        )}
       </Row>
       <WrapperArrFood>
         <Row>

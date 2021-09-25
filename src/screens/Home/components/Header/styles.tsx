@@ -1,5 +1,4 @@
 import styled, { css, DefaultTheme } from "styled-components";
-import { device } from "../../../../constants/devices";
 import { motion } from "framer-motion";
 
 const Container = styled.div<{ theme: DefaultTheme }>`
@@ -14,7 +13,6 @@ const Container = styled.div<{ theme: DefaultTheme }>`
 const Text = css`
   text-align: center;
   text-transform: capitalize;
-  line-height: 23px;
   white-space: nowrap;
 `;
 
@@ -26,68 +24,28 @@ const Row = styled.div`
   display: flex;
   flex-flow: row nowrap;
 `;
-const TitleLocation = styled(motion.span).attrs({
-  initial: {
-    y: -20,
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: 0.25,
-      duration: 0.25,
-      ease: [0.4, 0.0, 0.2, 1],
-    },
-  },
-})<{ theme: DefaultTheme }>`
-  font-family: "Manrope Bold", serif;
-  font-size: ${(props: { theme: DefaultTheme }) =>
-    props.theme.typography.displayLargeTitle}px;
-  color: ${(props: { theme: DefaultTheme }) => props.theme.colors.textH1};
+const TitleLocation = styled(motion.span)<{
+  theme: DefaultTheme;
+}>`
+  font-family: "Mullish", sans-serif;
+  font-weight: ${(props) => props.theme.fontWeight.fontBlack};
+  font-size: ${(props) => props.theme.typography.font14}px;
+  color: ${(props) => props.theme.colors.homeScreenColor.titleLocationColor};
   ${Text};
-  @media ${device.mobileS} {
-    font-size: ${(props: { theme: DefaultTheme }) =>
-      props.theme.typography.displayTitle1}px;
-  }
+  line-height: 17.57px;
 `;
-const Location = styled(motion.span).attrs({
-  initial: {
-    y: -20,
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: 0.25,
-      duration: 0.25,
-      ease: [0.4, 0.0, 0.2, 1],
-    },
-  },
-})<{ theme: DefaultTheme }>`
-  font-family: "Manrope", serif;
-  font-size: ${(props) => props.theme.typography.displayTitle3}px;
-  color: ${(props) => props.theme.colors.textP2};
+const Location = styled(motion.span)<{
+  theme: DefaultTheme;
+}>`
+  font-family: "Gilroy-Regular", sans-serif;
+  font-size: ${(props) => props.theme.typography.font16}px;
+  color: ${(props) => props.theme.colors.homeScreenColor.valueLocationColor};
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 18.75px;
   ${Text};
 `;
-const WrapperIcon = styled(motion.div).attrs({
-  initial: {
-    y: -20,
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: 0.25,
-      duration: 0.25,
-      ease: [0.4, 0.0, 0.2, 1],
-    },
-  },
-})`
+const WrapperIcon = styled(motion.div)`
   width: 24px;
   height: 16px;
   line-height: 23px;

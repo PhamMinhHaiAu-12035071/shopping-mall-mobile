@@ -1,18 +1,23 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { DefaultTheme, withTheme } from "styled-components";
 
 interface Props {
   isChecked: boolean;
+  theme: DefaultTheme;
 }
 
 function HomeSvg(props: Props) {
-  const { isChecked } = props;
+  const { isChecked, theme } = props;
   const variants = {
     open: {
-      fill: "#F47458",
+      fill: theme.colors.bottomNavigatorColor.iconActiveColor,
       transition: { duration: 0.25 },
     },
-    closed: { fill: "#828282", transition: { duration: 0.25 } },
+    closed: {
+      fill: theme.colors.bottomNavigatorColor.iconDisabledColor,
+      transition: { duration: 0.25 },
+    },
   };
   return (
     <motion.svg
@@ -31,4 +36,4 @@ function HomeSvg(props: Props) {
   );
 }
 
-export default HomeSvg;
+export default withTheme(HomeSvg);

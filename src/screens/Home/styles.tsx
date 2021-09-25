@@ -36,7 +36,7 @@ const WrapperContent = styled.div`
   width: 100%;
   height: auto;
   margin-top: 80px;
-  padding-bottom: 60px;
+  padding-bottom: 102px;
   box-sizing: border-box;
 `;
 export { SlideTransition, Container, WrapperContent };

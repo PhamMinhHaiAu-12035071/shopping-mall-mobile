@@ -11,15 +11,38 @@ declare module "styled-components" {
     circleDisabledColor: string;
   }
 
+  export interface SplashScreenColor {
+    cartSvgColor: string;
+  }
+
+  export interface BottomNavigatorColor {
+    iconDisabledColor: string;
+    iconActiveColor: string;
+  }
+
+  export interface HomeScreenColor {
+    titleLocationColor: string;
+    valueLocationColor: string;
+    checkedSvgColor: string;
+    circleHeaderIcon: string;
+    circleHoverHeaderIcon: string;
+    bannerColor: string;
+    hashTagColor: string;
+    titleListFoodColor: string;
+    viewMoreListFoodColor: string;
+    viewMoreHoverListFoodColor: string;
+    titleFoodItemColor: string;
+    categoryFoodItemColor: string;
+    priceFoodItemColor: string;
+    deprecatedPriceFoodItemColor: string;
+    btnCartFoodItemColor: string;
+    btnCartHoverFoodItemColor: string;
+  }
+
   export interface OnboardImage {
     stepOne: string;
     stepTwo: string;
     stepThree: string;
-  }
-
-  export interface OnboardScreenSize {
-    titleFontSize: number;
-    descriptionFontSize: number;
   }
 
   export interface Color {
@@ -37,6 +60,9 @@ declare module "styled-components" {
     light: string;
     gray: string;
     onBoardScreenColor: OnboardScreenColor;
+    homeScreenColor: HomeScreenColor;
+    splashScreenColor: SplashScreenColor;
+    bottomNavigatorColor: BottomNavigatorColor;
   }
 
   export interface Typography {
@@ -46,7 +72,13 @@ declare module "styled-components" {
     displayTitle1: number;
     displayTitle2: number;
     displayTitle3: number;
-    onBoardScreenSize: OnboardScreenSize;
+    font25: number;
+    font24: number;
+    font20: number;
+    font18: number;
+    font16: number;
+    font14: number;
+    font12: number;
   }
 
   export interface FontWeight {

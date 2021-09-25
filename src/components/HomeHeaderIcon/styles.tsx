@@ -1,25 +1,17 @@
 import styled, { DefaultTheme } from "styled-components";
 import Fab from "@material-ui/core/Fab";
-import { motion } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
+
+interface HomeFabIconProps extends MotionProps {
+  theme: DefaultTheme;
+}
 
 const HomeFabIcon = styled(Fab).attrs({
   component: motion.div,
-  initial: {
-    y: -20,
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: 0.25,
-      duration: 0.25,
-      ease: [0.4, 0.0, 0.2, 1],
-    },
-  },
-})<{ theme: DefaultTheme }>`
+})<HomeFabIconProps>`
   border-radius: 9999px;
-  background-color: ${(props) => props.theme.colors.mainTwo};
+  background-color: ${(props) =>
+    props.theme.colors.homeScreenColor.circleHeaderIcon};
   box-shadow: none;
   width: 40px;
   height: 40px;
@@ -29,11 +21,12 @@ const HomeFabIcon = styled(Fab).attrs({
   }
 
   :hover {
-    background-color: ${(props) => props.theme.colors.mainTwo};
+    background-color: ${(props) =>
+      props.theme.colors.homeScreenColor.circleHoverHeaderIcon};
   }
 
   & .MuiTouchRipple-root {
-    color: ${(props) => props.theme.colors.mainOneDarkShadow};
+    color: white;
   }
 `;
 

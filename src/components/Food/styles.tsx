@@ -38,6 +38,7 @@ const WrapperContent = styled.div`
   align-items: center;
   box-sizing: border-box;
   position: relative;
+  height: 100%;
   @media ${device.mobileS} {
     padding: 8px;
   }
@@ -65,35 +66,39 @@ const AbsoluteBtnCart = styled.div`
   }
 `;
 const Title = styled.span<{ theme: DefaultTheme }>`
-  font-family: "Manrope Bold", serif;
-  font-size: ${(props) => props.theme.typography.displayTitle3}px;
-  color: ${(props) => props.theme.colors.textH1};
-  line-height: 23px;
+  font-family: "Gilroy-Medium", sans-serif;
+  font-size: ${(props) => props.theme.typography.font16}px;
+  color: ${(props) => props.theme.colors.homeScreenColor.titleFoodItemColor};
+  line-height: 18.75px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
-const TextDetail = styled.span`
-  font-family: "Manrope", serif;
-  font-size: ${(props) => props.theme.typography.displayTitle3}px;
-  color: ${(props) => props.theme.colors.textP2};
-  line-height: 23px;
+const TextDetail = styled.span<{ theme: DefaultTheme }>`
+  font-family: "Gilroy-Medium", sans-serif;
+  font-size: ${(props) => props.theme.typography.font14}px;
+  color: ${(props) => props.theme.colors.homeScreenColor.categoryFoodItemColor};
+  line-height: 16.41px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 5px;
+  margin-bottom: 10px;
 `;
-const Price = styled.span`
-  font-family: "Manrope Bold", serif;
-  font-size: ${(props) => props.theme.typography.displayTitle2}px;
-  color: ${(props) => props.theme.colors.textH1};
-  line-height: 23px;
+const Price = styled.span<{ theme: DefaultTheme }>`
+  font-family: "Mullish", sans-serif;
+  font-weight: ${(props) => props.theme.fontWeight.fontBlack};
+  font-size: ${(props) => props.theme.typography.font16}px;
+  color: ${(props) => props.theme.colors.homeScreenColor.priceFoodItemColor};
+  line-height: 20.08px;
 `;
 const DeprecatedPrice = styled.span`
-  font-family: "Manrope", serif;
-  font-size: ${(props) => props.theme.typography.displayTitle3}px;
-  color: ${(props) => props.theme.colors.textP4};
-  line-height: 23px;
+  font-family: "Gilroy-Regular", sans-serif;
+  font-size: ${(props) => props.theme.typography.font12}px;
+  color: ${(props) =>
+    props.theme.colors.homeScreenColor.deprecatedPriceFoodItemColor};
+  line-height: 12px;
   margin-left: 3px;
   text-decoration: line-through;
 `;

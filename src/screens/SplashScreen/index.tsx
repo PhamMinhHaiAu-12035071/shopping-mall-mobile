@@ -8,13 +8,20 @@ import {
   Row,
   TextLogo,
 } from "./styles";
-import { ReactComponent as CartLogo } from "../../assets/images/cart-splash-screen.svg";
+import CartLogoSvg from "../../components/CartLogoSvg";
+import { DefaultTheme, withTheme } from "styled-components";
 
-function SplashScreen() {
+interface Props {
+  theme: DefaultTheme;
+}
+
+function SplashScreen(props: Props) {
   return (
     <Container>
       <Row>
-        <CartLogo />
+        <CartLogoSvg
+          color={props.theme.colors.splashScreenColor.cartSvgColor}
+        />
         <ColText>
           <TextLogo>eGrocery</TextLogo>
           <NameApp>your daily needs</NameApp>
@@ -27,4 +34,4 @@ function SplashScreen() {
   );
 }
 
-export default SplashScreen;
+export default withTheme(SplashScreen);

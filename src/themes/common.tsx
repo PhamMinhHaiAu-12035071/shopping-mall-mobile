@@ -22,9 +22,12 @@ const typography: Typography = {
   displayTitle1: 19,
   displayTitle2: 16,
   displayTitle3: 14,
-  onBoardScreenSize: {
-    titleFontSize: 25,
-    descriptionFontSize: 16,
-  },
+  font25: 25,
+  font24: 24,
+  font20: 20,
+  font18: 18,
+  font16: 16,
+  font14: 14,
+  font12: 12,
 };
 export { fontWeight, typography };

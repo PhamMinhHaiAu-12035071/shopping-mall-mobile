@@ -1,9 +1,7 @@
 import Button from "@material-ui/core/Button";
-import styled, { css, DefaultTheme } from "styled-components";
+import styled, { DefaultTheme } from "styled-components";
+import Skeleton from "@material-ui/lab/Skeleton";
 
-const CSSTitle = css<{ theme: DefaultTheme }>`
-  font-family: "Manrope Bold", serif;
-`;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -33,23 +31,36 @@ const WrapperViewMore = styled.div`
   max-width: 35%;
 `;
 const Title = styled.span<{ theme: DefaultTheme }>`
-  ${CSSTitle};
-  font-size: ${(props) => props.theme.typography.displayTitle1}px;
-  color: ${(props) => props.theme.colors.textH1};
-  line-height: 25.95px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-family: "Gilroy-Medium", sans-serif;
+  font-size: ${(props) => props.theme.typography.font18}px;
+  color: ${(props) => props.theme.colors.homeScreenColor.titleListFoodColor};
+  line-height: 21.09px;
+`;
+const SkeletonTitle = styled(Skeleton).attrs({
+  variant: "rect",
+})`
+  width: 40%;
+  height: 22px;
+  border-radius: 11.5px;
+`;
+const SkeletonViewMore = styled(Skeleton).attrs({
+  variant: "rect",
+})`
+  width: 15%;
+  height: 22px;
+  border-radius: 11.5px;
 `;
 const ViewMore = styled(Button)<{ theme: DefaultTheme }>`
-  ${CSSTitle};
-  font-size: ${(props) => props.theme.typography.displayTitle3}px;
-  line-height: 23px;
-  color: ${(props) => props.theme.colors.mainOne};
-  text-transform: capitalize;
+  font-family: "Mullish", sans-serif;
+  font-weight: ${(props) => props.theme.fontWeight.fontBlack};
+  font-size: ${(props) => props.theme.typography.font14}px;
+  line-height: 14px;
+  color: ${(props) => props.theme.colors.homeScreenColor.viewMoreListFoodColor};
+  text-transform: none;
 
   :hover {
-    background-color: ${(props) => props.theme.colors.mainOneShadow};
+    background-color: ${(props) =>
+      props.theme.colors.homeScreenColor.viewMoreHoverListFoodColor};
   }
 
   @media (pointer: coarse) {
@@ -95,4 +106,6 @@ export {
   WrapperTitle,
   WrapperViewMore,
   ColSkeleton,
+  SkeletonTitle,
+  SkeletonViewMore,
 };

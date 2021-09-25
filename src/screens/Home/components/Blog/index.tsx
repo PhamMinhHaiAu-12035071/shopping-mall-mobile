@@ -1,12 +1,14 @@
 import React from "react";
-import { Banner, Container, HashTag, Layer, TextApp } from "./styles";
+import { Banner, Container, HashTag, TextApp } from "./styles";
 
 function Blog() {
   return (
     <Container>
-      <Layer />
       <Banner>
-        <TextApp>order location daily groceries</TextApp>
+        <TextApp>
+          Order your <br />
+          Daily Groceries
+        </TextApp>
         <HashTag>#free delivery</HashTag>
       </Banner>
     </Container>

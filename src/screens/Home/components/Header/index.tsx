@@ -14,15 +14,49 @@ import { ReactComponent as SearchSvg } from "../../../../assets/images/search.sv
 import { useTranslation } from "react-i18next";
 import CheckedSVG from "../../../../components/CheckedSVG";
 import { useHistory } from "react-router-dom";
+import { DefaultTheme, withTheme } from "styled-components";
 
-function Header() {
-  const { t } = useTranslation("home");
+interface Props {
+  theme: DefaultTheme;
+}
+
+const variants = {
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.25,
+      duration: 0.25,
+      ease: [0.4, 0.0, 0.2, 1],
+    },
+  },
+  hidden: { y: -20, opacity: 0 },
+};
+
+function Header(props: Props) {
+  const { t, ready } = useTranslation("home");
+  const [isTranslateReady, setIsTranslateReady] =
+    React.useState<string>("hidden");
+  React.useEffect(() => {
+    if (ready) {
+      setIsTranslateReady("visible");
+    }
+  }, [ready]);
   const history = useHistory();
   const renderIcon = (
     icon: React.ReactElement,
     onClick: () => void
   ): React.ReactElement => {
-    return <HomeHeaderIcon onClick={onClick}>{icon}</HomeHeaderIcon>;
+    return (
+      <HomeHeaderIcon
+        onClick={onClick}
+        animate={isTranslateReady}
+        variants={variants}
+        initial={"hidden"}
+      >
+        {icon}
+      </HomeHeaderIcon>
+    );
   };
   const pressBurgerMenu = () => {
     console.log("press burger menu");
@@ -34,12 +68,30 @@ function Header() {
     return (
       <Col>
         <Row>
-          <TitleLocation>{t("home:currentLocation")}</TitleLocation>
-          <WrapperIcon>
-            <CheckedSVG />
+          <TitleLocation
+            animate={isTranslateReady}
+            variants={variants}
+            initial={"hidden"}
+          >
+            {t("home:currentLocation")}
+          </TitleLocation>
+          <WrapperIcon
+            animate={isTranslateReady}
+            variants={variants}
+            initial={"hidden"}
+          >
+            <CheckedSVG
+              color={props.theme.colors.homeScreenColor.checkedSvgColor}
+            />
           </WrapperIcon>
         </Row>
-        <Location>Chhatak,Syhlet</Location>
+        <Location
+          animate={isTranslateReady}
+          variants={variants}
+          initial={"hidden"}
+        >
+          Chhatak,Syhlet
+        </Location>
       </Col>
     );
   };
@@ -54,4 +106,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default withTheme(Header);

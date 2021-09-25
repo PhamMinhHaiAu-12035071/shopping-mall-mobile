@@ -1,12 +1,8 @@
 import React from "react";
 
 interface Props {
-  color?: string;
+  color: string;
 }
-
-const defaultProps: Props = {
-  color: "#F09066",
-};
 
 function CheckedSVG(props: Props) {
   const { color } = props;
@@ -25,7 +21,5 @@ function CheckedSVG(props: Props) {
     </svg>
   );
 }
-
-CheckedSVG.defaultProps = defaultProps;
 
 export default CheckedSVG;

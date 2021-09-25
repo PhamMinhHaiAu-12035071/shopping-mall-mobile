@@ -10,7 +10,8 @@ interface AddIconCustomProps extends SvgIconProps {
 
 const FabCartIcon = styled(Fab)<{ theme: DefaultTheme }>`
   border-radius: 9999px;
-  background-color: ${(props) => props.theme.colors.mainOne};
+  background-color: ${(props) =>
+    props.theme.colors.homeScreenColor.btnCartFoodItemColor};
   box-shadow: none;
   width: 30px;
   height: 30px;
@@ -28,17 +29,19 @@ const FabCartIcon = styled(Fab)<{ theme: DefaultTheme }>`
   }
 
   :hover {
-    background-color: ${(props) => props.theme.colors.other11};
+    background-color: ${(props) =>
+      props.theme.colors.homeScreenColor.btnCartHoverFoodItemColor};
   }
 
   @media (pointer: coarse) {
     :hover {
-      background-color: ${(props) => props.theme.colors.mainOne};
+      background-color: ${(props) =>
+        props.theme.colors.homeScreenColor.btnCartFoodItemColor};
     }
   }
 
   & .MuiTouchRipple-root {
-    color: ${(props) => props.theme.colors.light};
+    color: white;
   }
 `;
 const AddIConCart = styled(AddIcon)<AddIconCustomProps>`

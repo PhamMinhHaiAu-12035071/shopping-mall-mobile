@@ -33,8 +33,7 @@ const Title = styled.div<{ theme: DefaultTheme }>`
   font-family: "Mullish", sans-serif;
   font-weight: ${(props) => props.theme.fontWeight.fontBlack};
   text-align: center;
-  font-size: ${(props) =>
-    props.theme.typography.onBoardScreenSize.titleFontSize}px;
+  font-size: ${(props) => props.theme.typography.font25}px;
   color: ${(props) => props.theme.colors.onBoardScreenColor.titleColor};
   line-height: 31.38px;
   letter-spacing: -0.33px;
@@ -45,8 +44,7 @@ const Title = styled.div<{ theme: DefaultTheme }>`
 
 const Description = styled.div<{ theme: DefaultTheme }>`
   font-family: "Gilroy-Medium", sans-serif;
-  font-size: ${(props) =>
-    props.theme.typography.onBoardScreenSize.descriptionFontSize}px;
+  font-size: ${(props) => props.theme.typography.font16}px;
   color: ${(props) => props.theme.colors.onBoardScreenColor.descriptionColor};
   line-height: 22px;
   letter-spacing: 0.005em;
