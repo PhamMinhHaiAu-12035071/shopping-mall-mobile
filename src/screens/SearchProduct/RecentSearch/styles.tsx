@@ -7,28 +7,27 @@ const Item = styled.div<{ theme: DefaultTheme }>`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid ${(props) => props.theme.colors.box};
+  border-bottom: 1px solid
+    ${(props) =>
+      props.theme.colors.searchProductScreenColor.itemRecentSearchBorderColor};
 `;
 const Text = styled.div<{ theme: DefaultTheme }>`
-  font-family: "Manrope", serif;
-  font-size: ${(props) => props.theme.typography.displayTitle3}px;
-  line-height: 19.12px;
-  color: ${(props) => props.theme.colors.textP2};
+  font-family: "Gilroy-Regular", sans-serif;
+  font-size: ${(props) => props.theme.typography.font16}px;
+  line-height: 18.75px;
+  color: ${(props) =>
+    props.theme.colors.searchProductScreenColor.itemRecentSearchColor};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 const ButtonRefresh = styled(IconButton)<{ theme: DefaultTheme }>`
-  color: ${(props) => props.theme.colors.mainOne};
+  color: ${(props) =>
+    props.theme.colors.searchProductScreenColor.iconRecentSearchColor};
 
   :hover {
-    background-color: ${(props) => props.theme.colors.mainOneShadow};
-  }
-
-  @media (pointer: coarse) {
-    :hover {
-      background-color: transparent;
-    }
+    background-color: ${(props) =>
+      props.theme.colors.searchProductScreenColor.iconRecentSearchHoverColor};
   }
 `;
 const SvgRefresh = styled(SvgIcon).attrs({

@@ -67,7 +67,7 @@ function OnBoard(props: Props) {
       dispatch(stepCompleted());
     }
   };
-  const swiperProps = {
+  const swiperProps: { step: boolean; progress: number } = {
     step,
     progress,
   };

@@ -10,13 +10,25 @@ interface WrapperSearchProps {
 const WrapperSearch = styled(motion.div)<WrapperSearchProps>`
   width: ${(props) => props.width}px;
   height: 50px;
-  border: 1px solid ${(props) => props.theme.colors.box};
   border-radius: 10px;
   position: relative;
   box-sizing: border-box;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  background-color: ${(props) =>
+    props.theme.colors.searchProductScreenColor.inputSearchColor};
+`;
+const IconSearch = styled(IconButton)`
+  :hover {
+    background-color: ${(props) =>
+      props.theme.colors.searchProductScreenColor.iconSearchHoverColor};
+  }
+
+  & .MuiTouchRipple-root {
+    color: ${(props) =>
+      props.theme.colors.searchProductScreenColor.iconSearchColor};
+  }
 `;
 const SvgIconSearch = styled(SvgIcon).attrs({
   viewBox: "0 0 18 17",
@@ -32,21 +44,17 @@ const WrapperIconFilter = styled.div<{ theme: DefaultTheme }>`
   align-items: center;
 `;
 const IconButtonFilter = styled(IconButton)<{ theme: DefaultTheme }>`
-  background-color: ${(props) => props.theme.colors.mainOne};
+  background-color: ${(props) =>
+    props.theme.colors.searchProductScreenColor.iconFilterColor};
   border-radius: 10px;
 
   :hover {
-    background-color: ${(props) => props.theme.colors.other11};
-  }
-
-  @media (pointer: coarse) {
-    :hover {
-      background-color: ${(props) => props.theme.colors.mainOne};
-    }
+    background-color: ${(props) =>
+      props.theme.colors.searchProductScreenColor.iconFilterHoverColor};
   }
 
   & .MuiTouchRipple-root {
-    color: ${(props) => props.theme.colors.light};
+    color: white;
   }
 `;
 const SvgIconFilter = styled(SvgIcon).attrs({
@@ -62,10 +70,13 @@ const InputSearch = styled(TextField).attrs({
   type: "text",
   variant: "standard",
   autoComplete: "off",
-})`
+})<{ theme: DefaultTheme }>`
   & #search-product {
-    font-family: "Manrope", serif;
-    font-size: 14px;
+    font-family: "Gilroy-Regular", sans-serif;
+    font-size: ${(props) => props.theme.typography.font16}px;
+    color: ${(props) =>
+      props.theme.colors.searchProductScreenColor.placeholderColor};
+    line-height: 18.75px;
   }
 `;
 
@@ -77,4 +88,5 @@ export {
   SvgIconFilter,
   WrapperInput,
   InputSearch,
+  IconSearch,
 };

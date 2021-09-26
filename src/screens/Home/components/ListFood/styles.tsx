@@ -80,7 +80,8 @@ const Col = styled.div<{ theme: DefaultTheme }>`
   max-width: 46.5%;
   aspect-ratio: 0.8;
   border-radius: 20px;
-  border: 1px solid ${(props) => props.theme.colors.box};
+  border: 1px solid
+    ${(props) => props.theme.colors.homeScreenColor.foodItemBorderColor};
   overflow: hidden;
 `;
 const WrapperArrFood = styled.div`

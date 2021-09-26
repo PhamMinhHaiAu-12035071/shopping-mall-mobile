@@ -1,5 +1,6 @@
 {
-  "search": "Search",
-  "recentSearches": "Recent Searches",
-  "filter": "Filter"
+  "Search": "Search",
+  "Recent Searches": "Recent Searches",
+  "Filter": "Filter",
+  "Reset": "Reset"
 }

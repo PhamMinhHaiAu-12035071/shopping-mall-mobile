@@ -45,7 +45,7 @@ const FabCartIcon = styled(Fab)<{ theme: DefaultTheme }>`
   }
 `;
 const AddIConCart = styled(AddIcon)<AddIconCustomProps>`
-  color: ${(props) => props.theme.colors.light};
+  color: white;
 `;
 
 export { FabCartIcon, AddIConCart };

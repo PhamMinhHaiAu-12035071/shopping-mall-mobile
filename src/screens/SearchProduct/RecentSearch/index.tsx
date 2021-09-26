@@ -1,17 +1,19 @@
 import React from "react";
 import { ButtonRefresh, Item, SvgRefresh, Text } from "./styles";
-import { ReactComponent as IconRefresh } from "../../../assets/images/refresh.svg";
 import { List } from "react-virtualized";
 import { ListRowProps } from "react-virtualized/dist/es/List";
+import RefreshSvg from "../../../components/RefreshSvg";
+import { DefaultTheme, withTheme } from "styled-components";
 
 interface Props {
   list: Array<string>;
   height: number;
   width: number;
+  theme: DefaultTheme;
 }
 
 function RecentSearch(props: Props) {
-  const { width, height, list } = props;
+  const { width, height, list, theme } = props;
 
   const rowRenderer = ({
     key, // Unique key within array of rows
@@ -24,7 +26,11 @@ function RecentSearch(props: Props) {
           <Text>{list[index]}</Text>
           <ButtonRefresh>
             <SvgRefresh>
-              <IconRefresh />
+              <RefreshSvg
+                color={
+                  theme.colors.searchProductScreenColor.iconRecentSearchColor
+                }
+              />
             </SvgRefresh>
           </ButtonRefresh>
         </Item>
@@ -42,4 +48,4 @@ function RecentSearch(props: Props) {
   );
 }
 
-export default RecentSearch;
+export default withTheme(RecentSearch);

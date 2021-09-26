@@ -8,7 +8,7 @@ const Container = styled.div<{ theme: DefaultTheme }>`
   width: 100%;
   height: 60px;
   box-sizing: border-box;
-  background-color: ${(props) => props.theme.colors.light};
+  background-color: white;
 `;
 const Text = css`
   text-align: center;

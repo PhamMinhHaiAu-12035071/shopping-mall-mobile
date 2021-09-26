@@ -54,6 +54,6 @@ const Absolute = styled.div`
 const Loading = styled(CircularProgress).attrs({
   disableShrink: true,
 })<ProgressProps>`
-  color: ${(props) => props.theme.colors.mainOne};
+  color: ${(props) => props.theme.colors.splashScreenColor.loadingColor};
 `;
 export { Container, Row, ColText, TextLogo, NameApp, Absolute, Loading };

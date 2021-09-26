@@ -13,6 +13,7 @@ declare module "styled-components" {
 
   export interface SplashScreenColor {
     cartSvgColor: string;
+    loadingColor: string;
   }
 
   export interface BottomNavigatorColor {
@@ -37,6 +38,24 @@ declare module "styled-components" {
     deprecatedPriceFoodItemColor: string;
     btnCartFoodItemColor: string;
     btnCartHoverFoodItemColor: string;
+    foodItemBorderColor: string;
+  }
+
+  export interface SearchProductScreenColor {
+    iconSearchColor: string;
+    iconSearchHoverColor: string;
+    placeholderColor: string;
+    iconFilterColor: string;
+    iconFilterHoverColor: string;
+    titleRecentSearchColor: string;
+    itemRecentSearchColor: string;
+    iconRecentSearchColor: string;
+    iconRecentSearchHoverColor: string;
+    itemRecentSearchBorderColor: string;
+    inputSearchColor: string;
+    lineFilterModalColor: string;
+    iconCloseFilterModalColor: string;
+    resetTextFilterModalColor: string;
   }
 
   export interface OnboardImage {
@@ -46,32 +65,14 @@ declare module "styled-components" {
   }
 
   export interface Color {
-    mainOne: string;
-    mainOneShadow: string;
-    mainOneDarkShadow: string;
-    mainTwo: string;
-    mainThee: string;
-    textH1: string;
-    textP2: string;
-    textP3: string;
-    textP4: string;
-    box: string;
-    other11: string;
-    light: string;
-    gray: string;
     onBoardScreenColor: OnboardScreenColor;
     homeScreenColor: HomeScreenColor;
     splashScreenColor: SplashScreenColor;
     bottomNavigatorColor: BottomNavigatorColor;
+    searchProductScreenColor: SearchProductScreenColor;
   }
 
   export interface Typography {
-    displayExtraLargeTitle: number;
-    displayLargeTitle: number;
-    mediumTitle: number;
-    displayTitle1: number;
-    displayTitle2: number;
-    displayTitle3: number;
     font25: number;
     font24: number;
     font20: number;
@@ -82,9 +83,6 @@ declare module "styled-components" {
   }
 
   export interface FontWeight {
-    fwBold: number;
-    fwNormal: number;
-    fwLight: number;
     fontThin: number;
     fontExtraLight: number;
     fontLight: number;

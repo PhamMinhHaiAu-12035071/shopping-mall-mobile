@@ -1,6 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { IconButton } from "@material-ui/core";
-import { ReactComponent as SearchIcon } from "../../../assets/images/search.svg";
 import CancelRoundedIcon from "@material-ui/icons/CancelRounded";
 import { ReactComponent as FilterIcon } from "../../../assets/images/filter.svg";
 import {
@@ -11,8 +10,11 @@ import {
   WrapperIconFilter,
   WrapperInput,
   WrapperSearch,
+  IconSearch,
 } from "./styles";
 import { useTranslation } from "react-i18next";
+import SearchSvg from "../../../components/SearchSvg";
+import { DefaultTheme, withTheme } from "styled-components";
 
 interface Props {
   autoFocus?: boolean;
@@ -24,6 +26,7 @@ interface Props {
   onSearch?: (strSearch: string) => void;
   onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   onFilter?: () => void;
+  theme: DefaultTheme;
 }
 
 const defaultProps = {
@@ -41,6 +44,7 @@ function Search(props: Props) {
     onSearch,
     onKeyPress,
     onFilter,
+    theme,
   } = props;
   const { t } = useTranslation("searchProduct");
   const setTextSearch = (event: React.ChangeEvent<HTMLInputElement>) =>
@@ -83,11 +87,15 @@ function Search(props: Props) {
           InputProps={{
             disableUnderline: true,
             startAdornment: (
-              <IconButton onClick={pressSearch}>
+              <IconSearch onClick={pressSearch}>
                 <SvgIconSearch>
-                  <SearchIcon />
+                  <SearchSvg
+                    color={
+                      theme.colors.searchProductScreenColor.iconSearchColor
+                    }
+                  />
                 </SvgIconSearch>
-              </IconButton>
+              </IconSearch>
             ),
             endAdornment: search && (
               <IconButton aria-label="clear text" onClick={() => setSearch("")}>
@@ -95,7 +103,7 @@ function Search(props: Props) {
               </IconButton>
             ),
           }}
-          placeholder={t("searchProduct:search")}
+          placeholder={t("searchProduct:Search")}
         />
       </WrapperInput>
       <WrapperIconFilter>
@@ -111,4 +119,4 @@ function Search(props: Props) {
 
 Search.defaultProps = defaultProps;
 
-export default Search;
+export default withTheme(Search);

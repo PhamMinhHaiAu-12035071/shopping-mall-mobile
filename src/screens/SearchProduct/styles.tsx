@@ -51,20 +51,6 @@ const LeftHeader = styled.div`
 `;
 const ButtonArrowBack = styled(IconButton)<ButtonArrowBackProps>`
   padding: 10px;
-
-  :hover {
-    background-color: ${(props) => props.theme.colors.mainOneShadow};
-  }
-
-  @media (pointer: coarse) {
-    :hover {
-      background-color: transparent;
-    }
-  }
-
-  & .MuiTouchRipple-root {
-    color: ${(props) => props.theme.colors.mainOne};
-  }
 `;
 const SvgIconBack = styled(SvgIcon).attrs({
   viewBox: "0 0 30 30",
@@ -82,9 +68,11 @@ const WrapperRecentSearch = styled(motion.div)`
   height: auto;
 `;
 const TitleRecentSearch = styled(motion.div)<{ theme: DefaultTheme }>`
-  font-family: "Manrope Bold", serif;
-  font-size: ${(props) => props.theme.typography.displayTitle2}px;
-  color: ${(props) => props.theme.colors.textH1};
+  font-family: "Gilroy-Medium", sans-serif;
+  font-size: ${(props) => props.theme.typography.font18}px;
+  line-height: 21.09px;
+  color: ${(props) =>
+    props.theme.colors.searchProductScreenColor.titleRecentSearchColor};
   margin: 20px;
 `;
 const WrapperList = styled(motion.div)``;

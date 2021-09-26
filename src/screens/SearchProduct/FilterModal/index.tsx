@@ -8,6 +8,9 @@ import {
   Line,
   Row,
   Title,
+  WrapperButtonClose,
+  RowControls,
+  WrapperButtonReset,
 } from "./styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
@@ -47,13 +50,17 @@ function FilterModal(props: Props) {
             <FlexCenter>
               <Line />
             </FlexCenter>
-            <Title>{t("searchProduct:filter")}</Title>
-            <Row>
-              <IconButtonClose>
-                <CloseIcon />
-              </IconButtonClose>
-              <ButtonReset>reset</ButtonReset>
-            </Row>
+            <RowControls>
+              <WrapperButtonClose>
+                <IconButtonClose>
+                  <CloseIcon />
+                </IconButtonClose>
+              </WrapperButtonClose>
+              <Title>{t("searchProduct:Filter")}</Title>
+              <WrapperButtonReset>
+                <ButtonReset>{t("searchProduct:Reset")}</ButtonReset>
+              </WrapperButtonReset>
+            </RowControls>
           </AccordionSummaryCustom>
           <AccordionDetails>
             <Typography>

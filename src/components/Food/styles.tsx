@@ -104,6 +104,7 @@ const DeprecatedPrice = styled.span`
 `;
 
 /* Skeleton */
+const TOP = 60;
 const CSSAbsolute = css`
   position: absolute;
   left: 12px;
@@ -127,7 +128,7 @@ const SkeletonContainer = styled(Skeleton).attrs({
 `;
 const AbsoluteTitle = styled.div`
   ${CSSAbsolute};
-  top: 55%;
+  top: ${TOP}%;
 `;
 const TitleSkeleton = styled(Skeleton).attrs({
   animation: "wave",
@@ -140,7 +141,7 @@ const TitleSkeleton = styled(Skeleton).attrs({
 `;
 const AbsoluteDetail = styled.div`
   ${CSSAbsolute};
-  top: calc(55% + 24px);
+  top: calc(${TOP}% + 24px);
 `;
 const DetailSkeleton = styled(Skeleton).attrs({
   animation: "wave",
@@ -153,7 +154,7 @@ const DetailSkeleton = styled(Skeleton).attrs({
 `;
 const AbsolutePrice = styled.div`
   ${CSSAbsolute};
-  top: calc(55% + 48px);
+  top: calc(${TOP}% + 48px);
 `;
 const PriceSkeleton = styled(Skeleton).attrs({
   animation: "wave",
@@ -166,7 +167,7 @@ const PriceSkeleton = styled(Skeleton).attrs({
 `;
 const AbsoluteCart = styled.div`
   ${CSSAbsolute};
-  top: calc(55% + 42px);
+  top: calc(${TOP}% + 42px);
   left: calc(100% - 32px);
 `;
 const CartSkeleton = styled(Skeleton).attrs({
