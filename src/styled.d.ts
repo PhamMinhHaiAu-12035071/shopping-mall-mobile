@@ -56,6 +56,14 @@ declare module "styled-components" {
     lineFilterModalColor: string;
     iconCloseFilterModalColor: string;
     resetTextFilterModalColor: string;
+    sortByTextColor: string;
+    sortByIconColor: string;
+    priceRangeSliderActiveColor: string;
+    priceRangeSliderDeActiveColor: string;
+    priceRangeSlideThumbShadowColor: string;
+    priceRangeSlideTextColor: string;
+    buttonOutlineBorderColor: string;
+    buttonOutlineTextColor: string;
   }
 
   export interface OnboardImage {

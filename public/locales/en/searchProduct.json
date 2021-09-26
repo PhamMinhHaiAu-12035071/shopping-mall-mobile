@@ -2,5 +2,11 @@
   "Search": "Search",
   "Recent Searches": "Recent Searches",
   "Filter": "Filter",
-  "Reset": "Reset"
+  "Reset": "Reset",
+  "Sort By": "Sort By",
+  "Popularity": "Popularity",
+  "Featured": "Featured",
+  "Rating": "Rating",
+  "Price range": "Price range",
+  "Categories": "Categories"
 }

@@ -1,14 +1,25 @@
 import Drawer from "@material-ui/core/Drawer";
-import styled, { DefaultTheme } from "styled-components";
-import { motion } from "framer-motion";
+import styled, { css, DefaultTheme } from "styled-components";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
+import { Select, Slider } from "@material-ui/core";
+
+const CSSSortBy = css<{ theme: DefaultTheme }>`
+  font-family: "Mullish", sans-serif;
+  font-weight: ${(props) => props.theme.fontWeight.fontBlack};
+  font-size: ${(props) => props.theme.typography.font16}px;
+  line-height: 20.08px;
+  color: ${(props) =>
+    props.theme.colors.searchProductScreenColor.sortByTextColor};
+`;
 
 const DrawerCustom = styled(Drawer).attrs({
   anchor: "bottom",
 })`
   & .MuiPaper-root {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     border-start-start-radius: 20px;
     border-start-end-radius: 20px;
   }
@@ -20,15 +31,12 @@ const FlexCenter = styled.div`
   position: relative;
 `;
 const RowControls = styled(FlexCenter)`
+  margin: 16px 0;
   height: 40px;
 `;
 
-const Row = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const Line = styled(motion.div)<{ theme: DefaultTheme }>`
+const Line = styled.div<{ theme: DefaultTheme }>`
+  margin-top: 12px;
   width: 50px;
   height: 4px;
   border-radius: 5px;
@@ -48,6 +56,10 @@ const AccordionSummaryCustom = styled(AccordionSummary).attrs({
 })`
   & .MuiAccordionSummary-content {
     flex-flow: column nowrap;
+  }
+
+  &.Mui-focused {
+    background-color: white;
   }
 `;
 
@@ -72,6 +84,7 @@ const IconButtonClose = styled(IconButton).attrs({
     props.theme.colors.searchProductScreenColor.iconCloseFilterModalColor};
   width: 40px;
   height: 40px;
+  padding: 0;
 `;
 const ButtonReset = styled(Button)<{ theme: DefaultTheme }>`
   height: 40px;
@@ -82,16 +95,87 @@ const ButtonReset = styled(Button)<{ theme: DefaultTheme }>`
   color: ${(props) =>
     props.theme.colors.searchProductScreenColor.resetTextFilterModalColor};
 `;
+
+const TextSortBy = styled.div<{ theme: DefaultTheme }>`
+  ${CSSSortBy};
+`;
+const SortByCustom = styled(Select)`
+  ${CSSSortBy};
+
+  & .MuiSelect-select:focus {
+    background-color: white;
+  }
+`;
+const WrapperPrice = styled.div`
+  margin-top: 16px;
+  margin-bottom: 24px;
+`;
+const TextPrice = styled.div`
+  ${CSSSortBy};
+`;
+const CustomPriceRange = styled(Slider)<{ theme: DefaultTheme }>`
+  margin-left: 8px;
+  width: calc(100% - 16px);
+
+  & .MuiSlider-rail,
+  & .MuiSlider-track {
+    height: 6px;
+    border-radius: 3px;
+  }
+
+  & .MuiSlider-rail {
+    color: ${(props) =>
+      props.theme.colors.searchProductScreenColor
+        .priceRangeSliderDeActiveColor};
+  }
+
+  & .MuiSlider-track {
+    color: ${(props) =>
+      props.theme.colors.searchProductScreenColor.priceRangeSliderActiveColor};
+  }
+
+  & .MuiSlider-thumb {
+    width: 24px;
+    height: 24px;
+    margin-top: -10px;
+    box-sizing: border-box;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px
+      ${(props) =>
+        props.theme.colors.searchProductScreenColor
+          .priceRangeSlideThumbShadowColor};
+    color: ${(props) =>
+      props.theme.colors.searchProductScreenColor.priceRangeSliderActiveColor};
+  }
+
+  & .MuiSlider-valueLabel {
+    top: 30px;
+    left: calc(-50% - -5px);
+
+    & * {
+      font-family: "Gilroy-Medium", sans-serif;
+      font-size: ${(props) => props.theme.typography.font14}px;
+      line-height: 16.41px;
+      background-color: transparent;
+      color: ${(props) =>
+        props.theme.colors.searchProductScreenColor.priceRangeSlideTextColor};
+    }
+  }
+`;
 export {
   DrawerCustom,
   Line,
   Title,
   AccordionSummaryCustom,
   FlexCenter,
-  Row,
   IconButtonClose,
   ButtonReset,
   WrapperButtonClose,
   RowControls,
   WrapperButtonReset,
+  TextSortBy,
+  SortByCustom,
+  WrapperPrice,
+  TextPrice,
+  CustomPriceRange,
 };
