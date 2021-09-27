@@ -64,6 +64,8 @@ declare module "styled-components" {
     priceRangeSlideTextColor: string;
     buttonOutlineBorderColor: string;
     buttonOutlineTextColor: string;
+    buttonApplyFilterColor: string;
+    buttonApplyFilterHoverColor: string;
   }
 
   export interface OnboardImage {
@@ -73,6 +75,7 @@ declare module "styled-components" {
   }
 
   export interface Color {
+    starRatingColor: string;
     onBoardScreenColor: OnboardScreenColor;
     homeScreenColor: HomeScreenColor;
     splashScreenColor: SplashScreenColor;

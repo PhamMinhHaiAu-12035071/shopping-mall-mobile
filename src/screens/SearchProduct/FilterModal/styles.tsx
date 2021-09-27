@@ -1,9 +1,13 @@
 import Drawer from "@material-ui/core/Drawer";
 import styled, { css, DefaultTheme } from "styled-components";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
-import { Select, Slider } from "@material-ui/core";
+import {
+  Select,
+  Slider,
+  AccordionDetails,
+  Button,
+  IconButton,
+  AccordionSummary,
+} from "@material-ui/core";
 
 const CSSSortBy = css<{ theme: DefaultTheme }>`
   font-family: "Mullish", sans-serif;
@@ -13,7 +17,13 @@ const CSSSortBy = css<{ theme: DefaultTheme }>`
   color: ${(props) =>
     props.theme.colors.searchProductScreenColor.sortByTextColor};
 `;
-
+const MARGIN = 20;
+const CSSMarginTop = css`
+  margin-top: ${MARGIN}px;
+`;
+const CSSMarginBottom = css`
+  margin-bottom: ${MARGIN}px;
+`;
 const DrawerCustom = styled(Drawer).attrs({
   anchor: "bottom",
 })`
@@ -30,8 +40,10 @@ const FlexCenter = styled.div`
   align-items: center;
   position: relative;
 `;
+const WrapperMarginTop = styled.div`
+  ${CSSMarginTop};
+`;
 const RowControls = styled(FlexCenter)`
-  margin: 16px 0;
   height: 40px;
 `;
 
@@ -42,6 +54,7 @@ const Line = styled.div<{ theme: DefaultTheme }>`
   border-radius: 5px;
   background-color: ${(props) =>
     props.theme.colors.searchProductScreenColor.lineFilterModalColor};
+  ${CSSMarginBottom};
 `;
 const Title = styled.div<{ theme: DefaultTheme }>`
   font-family: "Mullish", sans-serif;
@@ -56,6 +69,11 @@ const AccordionSummaryCustom = styled(AccordionSummary).attrs({
 })`
   & .MuiAccordionSummary-content {
     flex-flow: column nowrap;
+    padding-bottom: 20px;
+  }
+
+  & .MuiAccordionSummary-content.Mui-expanded {
+    padding-bottom: 0;
   }
 
   &.Mui-focused {
@@ -106,13 +124,6 @@ const SortByCustom = styled(Select)`
     background-color: white;
   }
 `;
-const WrapperPrice = styled.div`
-  margin-top: 16px;
-  margin-bottom: 24px;
-`;
-const TextPrice = styled.div`
-  ${CSSSortBy};
-`;
 const CustomPriceRange = styled(Slider)<{ theme: DefaultTheme }>`
   margin-left: 8px;
   width: calc(100% - 16px);
@@ -162,6 +173,34 @@ const CustomPriceRange = styled(Slider)<{ theme: DefaultTheme }>`
     }
   }
 `;
+
+const AccordionDetailsCustom = styled(AccordionDetails)`
+  flex-flow: column nowrap;
+  margin-top: ${-MARGIN * 1.2}px;
+`;
+
+const ButtonSave = styled(Button).attrs({
+  variant: "contained",
+  disableElevation: true,
+})<{ theme: DefaultTheme }>`
+  background-color: ${(props) =>
+    props.theme.colors.searchProductScreenColor.buttonApplyFilterColor};
+  color: white;
+  font-family: "Mullish", sans-serif;
+  font-weight: ${(props) => props.theme.fontWeight.fontBlack};
+  font-size: ${(props) => props.theme.typography.font16}px;
+  letter-spacing: 0.8px;
+  border-radius: 15px;
+  ${CSSMarginTop};
+  margin-bottom: 10px;
+  height: 56px;
+  text-transform: none;
+
+  :hover {
+    background-color: ${(props) =>
+      props.theme.colors.searchProductScreenColor.buttonApplyFilterHoverColor};
+  }
+`;
 export {
   DrawerCustom,
   Line,
@@ -175,7 +214,8 @@ export {
   WrapperButtonReset,
   TextSortBy,
   SortByCustom,
-  WrapperPrice,
-  TextPrice,
   CustomPriceRange,
+  AccordionDetailsCustom,
+  WrapperMarginTop,
+  ButtonSave,
 };

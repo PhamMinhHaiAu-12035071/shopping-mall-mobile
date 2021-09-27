@@ -1,18 +1,16 @@
 import React from "react";
-import { Container, Title, WrapperBtnSeeAll } from "./styles";
+import { Container, WrapperBtnSeeAll } from "./styles";
 import { Grid } from "@material-ui/core";
 import ButtonCustom from "../../../components/ButtonCustom";
 
 interface Props {
-  title: string;
   list: Array<string>;
 }
 
 function MultiChoice(props: Props) {
-  const { title, list } = props;
+  const { list } = props;
   return (
     <Container>
-      <Title>{title}</Title>
       <Grid
         container
         direction={"row"}

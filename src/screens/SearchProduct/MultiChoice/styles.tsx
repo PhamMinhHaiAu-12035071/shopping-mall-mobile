@@ -1,17 +1,13 @@
-import styled, { DefaultTheme } from "styled-components";
+import styled from "styled-components";
 
-const Container = styled.div``;
-
-const Title = styled.div<{ theme: DefaultTheme }>`
-  font-family: "Mullish", sans-serif;
-  font-weight: ${(props) => props.theme.fontWeight.fontBlack};
-  font-size: ${(props) => props.theme.typography.font16}px;
-  line-height: 20.08px;
-  color: ${(props) =>
-    props.theme.colors.searchProductScreenColor.sortByTextColor};
-  margin-bottom: 20px;
+const Container = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: auto;
 `;
+
 const WrapperBtnSeeAll = styled.div`
-  margin-top: 8px;
+  margin-top: 12px;
 `;
-export { Container, Title, WrapperBtnSeeAll };
+export { Container, WrapperBtnSeeAll };

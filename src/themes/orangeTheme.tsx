@@ -6,6 +6,7 @@ import stepThree from "../assets/images/step-three.png";
 
 const orangeTheme: DefaultTheme = {
   colors: {
+    starRatingColor: "rgba(255, 193, 7, 1)",
     onBoardScreenColor: {
       titleColor: "rgba(22, 22, 46, 1)",
       descriptionColor: "rgba(22, 22, 46, 0.6)",
@@ -64,6 +65,8 @@ const orangeTheme: DefaultTheme = {
       priceRangeSlideTextColor: "rgba(22, 22, 46, 1)",
       buttonOutlineBorderColor: "rgba(244, 116, 88, 1)",
       buttonOutlineTextColor: "rgba(139, 139, 151, 1)",
+      buttonApplyFilterColor: "rgba(244, 116, 88, 1)",
+      buttonApplyFilterHoverColor: "rgba(186 , 43, 12, 1)",
     },
   },
   onBoardImage: {
