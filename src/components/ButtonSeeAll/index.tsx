@@ -2,7 +2,6 @@ import React from "react";
 import styled, {DefaultTheme, withTheme} from "styled-components";
 import Button from "@material-ui/core/Button";
 import {motion} from "framer-motion";
-import {ItemData} from "../../screens/SearchProduct/FilterModal";
 
 interface ButtonOutlineProps {
     theme: DefaultTheme;
@@ -40,12 +39,12 @@ const ButtonOutline = styled(Button).attrs({
 interface Props {
     children: string | React.ReactElement;
     theme: DefaultTheme;
-    item: ItemData;
-    onClick?: (id: string, isSelected: boolean) => void;
+    isSelected: boolean;
+    onClick?: () => void;
 }
 
-function ButtonCustom(props: Props) {
-    const {children, theme, item, onClick} = props;
+function ButtonSeeAll(props: Props) {
+    const {children, theme, isSelected, onClick} = props;
     const variants = {
         visible: {
             backgroundColor:
@@ -59,13 +58,13 @@ function ButtonCustom(props: Props) {
     };
     const handleClick = () => {
         if (typeof onClick === "function") {
-            onClick(item.id, item.isSelected);
+            onClick();
         }
     }
     const styledAnimate = {
-        isSelected: item.isSelected,
+        isSelected: isSelected,
         variants,
-        animate: item.isSelected ? "visible" : "hidden",
+        animate: isSelected ? "visible" : "hidden",
     };
     return (
         <ButtonOutline
@@ -79,4 +78,4 @@ function ButtonCustom(props: Props) {
     );
 }
 
-export default withTheme(ButtonCustom);
+export default withTheme(ButtonSeeAll);

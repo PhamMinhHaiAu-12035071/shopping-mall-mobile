@@ -1,3 +1,4 @@
 import orangeTheme from "./orangeTheme";
+import greenTheme from "./greenTheme";
 
-export { orangeTheme };
+export {orangeTheme, greenTheme};
