@@ -1,5 +1,5 @@
 import styled, {DefaultTheme} from 'styled-components';
-import SvgIcon from "@material-ui/core/SvgIcon";
+import {Button, SvgIcon} from "@material-ui/core";
 
 const Container = styled.div`
   width: 100%;
@@ -9,9 +9,10 @@ const Container = styled.div`
 `;
 const Header = styled.div<{ theme: DefaultTheme }>`
   height: 60px;
-  padding: 10px 20px;
+  padding-top: 5px;
+  padding-left: 10px;
   box-sizing: border-box;
-  border-bottom: 1px solid ${props => props.theme.colors.pageNotFoundColor.headerBorderBottomColor};
+  box-shadow: inset 0px -1px 0px ${props => props.theme.colors.headerBorderBottomColor};
 `;
 const Circle = styled.div<{ theme: DefaultTheme }>`
   width: 280px;
@@ -60,6 +61,28 @@ const WrapperButton = styled.div`
   flex-basis: 20%;
   flex-shrink: 1;
   max-height: 20%;
+  padding: 0 20px;
+`;
+const ButtonCustom = styled(Button).attrs({
+    variant: 'contained',
+    disableElevation: true,
+    fullWidth: true,
+})<{ theme: DefaultTheme }>`
+  border-radius: 15px;
+  height: 56px;
+  background-color: ${props => props.theme.colors.pageNotFoundColor.buttonColor};
+  color: white;
+  font-family: "Mullish", sans-serif;
+  font-weight: ${props => props.theme.fontWeight.fontBlack};
+  font-size: ${props => props.theme.typography.font16}px;
+  line-height: 16px;
+  letter-spacing: 0.8px;
+  text-align: center;
+  text-transform: none;
+
+  :hover {
+    background-color: ${props => props.theme.colors.pageNotFoundColor.buttonHoverColor};
+  }
 `;
 export {
     Container,
@@ -71,6 +94,7 @@ export {
     Title,
     Description,
     WrapperText,
-    WrapperDescription
+    WrapperDescription,
+    ButtonCustom
 }
 

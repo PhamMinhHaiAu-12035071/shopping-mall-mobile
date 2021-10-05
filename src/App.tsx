@@ -8,6 +8,7 @@ import useWindowDimensions from "./hooks/useWindowDimensions";
 import styled, {DefaultTheme} from "styled-components";
 import SelectTheme from "./screens/SelectTheme";
 import PageNotFound from "./screens/PageNotFound";
+import NewItems from "./screens/NewItems";
 
 interface ContainerProps {
     theme: DefaultTheme;
@@ -33,6 +34,7 @@ function App() {
                     <Route path={"/"} exact component={OnBoard}/>
                     <Route path={"/home"} exact component={Home}/>
                     <Route path={"/search"} exact component={SearchProduct}/>
+                    <Route path={"/products"} exact component={NewItems}/>
                     <Route path={"*"} component={PageNotFound}/>
                 </Switch>
             </AnimatePresence>

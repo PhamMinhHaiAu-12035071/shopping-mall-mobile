@@ -1,10 +1,10 @@
-import styled, { DefaultTheme } from "styled-components";
-import { motion } from "framer-motion";
-import { IconButton, SvgIcon, TextField } from "@material-ui/core";
+import styled, {css, DefaultTheme} from "styled-components";
+import {motion} from "framer-motion";
+import {IconButton, SvgIcon, TextField} from "@material-ui/core";
 
 interface WrapperSearchProps {
-  theme: DefaultTheme;
-  width: number;
+    theme: DefaultTheme;
+    width: number;
 }
 
 const WrapperSearch = styled(motion.div)<WrapperSearchProps>`
@@ -17,21 +17,24 @@ const WrapperSearch = styled(motion.div)<WrapperSearchProps>`
   flex-flow: row nowrap;
   justify-content: space-between;
   background-color: ${(props) =>
-    props.theme.colors.searchProductScreenColor.inputSearchColor};
+          props.theme.colors.searchProductScreenColor.inputSearchColor};
+  ${props => props.theme.colors.searchProductScreenColor.inputSearchBorderColor !== 'transparent' && css`
+    border: 1px solid ${props => props.theme.colors.searchProductScreenColor.inputSearchBorderColor};
+  `};
 `;
 const IconSearch = styled(IconButton)`
   :hover {
     background-color: ${(props) =>
-      props.theme.colors.searchProductScreenColor.iconSearchHoverColor};
+            props.theme.colors.searchProductScreenColor.iconSearchHoverColor};
   }
 
   & .MuiTouchRipple-root {
     color: ${(props) =>
-      props.theme.colors.searchProductScreenColor.iconSearchColor};
+            props.theme.colors.searchProductScreenColor.iconSearchColor};
   }
 `;
 const SvgIconSearch = styled(SvgIcon).attrs({
-  viewBox: "0 0 18 17",
+    viewBox: "0 0 18 17",
 })`
   font-size: 24px;
 `;
@@ -45,12 +48,12 @@ const WrapperIconFilter = styled.div<{ theme: DefaultTheme }>`
 `;
 const IconButtonFilter = styled(IconButton)<{ theme: DefaultTheme }>`
   background-color: ${(props) =>
-    props.theme.colors.searchProductScreenColor.iconFilterColor};
+          props.theme.colors.searchProductScreenColor.iconFilterColor};
   border-radius: 10px;
 
   :hover {
     background-color: ${(props) =>
-      props.theme.colors.searchProductScreenColor.iconFilterHoverColor};
+            props.theme.colors.searchProductScreenColor.iconFilterHoverColor};
   }
 
   & .MuiTouchRipple-root {
@@ -58,7 +61,7 @@ const IconButtonFilter = styled(IconButton)<{ theme: DefaultTheme }>`
   }
 `;
 const SvgIconFilter = styled(SvgIcon).attrs({
-  viewBox: "0 0 28 28",
+    viewBox: "0 0 28 28",
 })`
   font-size: 28px;
 `;
@@ -66,27 +69,27 @@ const WrapperInput = styled.div`
   width: calc(100% - 50px);
 `;
 const InputSearch = styled(TextField).attrs({
-  id: "search-product",
-  type: "text",
-  variant: "standard",
-  autoComplete: "off",
+    id: "search",
+    type: "text",
+    variant: "standard",
+    autoComplete: "on",
 })<{ theme: DefaultTheme }>`
-  & #search-product {
+  & #search {
     font-family: "Gilroy-Regular", sans-serif;
     font-size: ${(props) => props.theme.typography.font16}px;
     color: ${(props) =>
-      props.theme.colors.searchProductScreenColor.placeholderColor};
+            props.theme.colors.searchProductScreenColor.placeholderColor};
     line-height: 18.75px;
   }
 `;
 
 export {
-  WrapperSearch,
-  SvgIconSearch,
-  WrapperIconFilter,
-  IconButtonFilter,
-  SvgIconFilter,
-  WrapperInput,
-  InputSearch,
-  IconSearch,
+    WrapperSearch,
+    SvgIconSearch,
+    WrapperIconFilter,
+    IconButtonFilter,
+    SvgIconFilter,
+    WrapperInput,
+    InputSearch,
+    IconSearch,
 };

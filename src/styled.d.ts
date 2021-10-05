@@ -55,6 +55,7 @@ declare module "styled-components" {
         iconRecentSearchHoverColor: string;
         itemRecentSearchBorderColor: string;
         inputSearchColor: string;
+        inputSearchBorderColor: string;
         lineFilterModalColor: string;
         iconCloseFilterModalColor: string;
         resetTextFilterModalColor: string;
@@ -71,10 +72,27 @@ declare module "styled-components" {
     }
 
     export interface PageNotFoundColor {
-        headerBorderBottomColor: string;
         circleColor: string;
         titleColor: string;
         descriptionColor: string;
+        buttonColor: string;
+        buttonHoverColor: string;
+    }
+
+    export interface PageNewItemsColor {
+        searchColor: string;
+        iconSearchColor: string;
+        iconSearchHoverColor: string;
+        placeholderColor: string;
+        inputSearchColor: string;
+        inputSearchBorderColor: string;
+        textTabSelected: string;
+        textTabNotSelected: string;
+        backgroundTabSelected: string;
+        itemBorderColor: string;
+        itemTitleColor: string;
+        itemPriceColor: string;
+        itemMassColor: string;
     }
 
     export interface OnboardImage {
@@ -96,6 +114,8 @@ declare module "styled-components" {
         bottomNavigatorColor: BottomNavigatorColor;
         searchProductScreenColor: SearchProductScreenColor;
         pageNotFoundColor: PageNotFoundColor;
+        headerBorderBottomColor: string;
+        pageNewItemsColor: PageNewItemsColor;
     }
 
     export interface Typography {

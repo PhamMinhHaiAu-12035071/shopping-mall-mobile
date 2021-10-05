@@ -1,16 +1,18 @@
 import React from 'react';
 import {
+    ButtonCustom,
     Circle,
     Container,
     Description,
     Header,
     SvgIconCustom,
+    Title,
     WrapperButton,
     WrapperContent,
-    Title,
-    WrapperText, WrapperDescription
+    WrapperDescription,
+    WrapperText
 } from './styles';
-import {Button, IconButton} from "@material-ui/core";
+import {IconButton} from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import {useAppSelector} from "../../stores/hooks";
 import {selectNameTheme} from "../../stores/reducers/themeReducers";
@@ -52,7 +54,7 @@ function PageNotFound() {
                 </WrapperText>
             </WrapperContent>
             <WrapperButton>
-                <Button variant={"contained"} disableElevation fullWidth>try again</Button>
+                <ButtonCustom>{t("pageNotFound:Try Again")}</ButtonCustom>
             </WrapperButton>
         </Container>
     )
